@@ -28,12 +28,14 @@ type ACTIONTYPE =
   | { type: 'error'; payload: number };
 
 function reducer(state: typeof initialState, action: ACTIONTYPE) {
-  //   console.log(state);
   switch (action.type) {
     case 'success':
       return {
         ...state,
-        attack: { success: state.attack.success + action.payload, error: 0 },
+        attack: {
+          ...state.attack,
+          success: state.attack.success + action.payload,
+        },
       };
     case 'error':
       state.attack.error += action.payload;
@@ -46,21 +48,16 @@ function reducer(state: typeof initialState, action: ACTIONTYPE) {
 const TrackGame = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  //   const attackSuccess = () => {
-  //     console.log(stats);
-  //     setStats(stats.attack.success;
-  //   };
+  const attackSuccess = () => {
+    console.log(state);
+    dispatch({ type: 'success', payload: 1 });
+  };
 
   return (
     <>
       <div>track-game</div>
       <Typography variant="h4">{state.attack.success}</Typography>
-      <Button
-        variant="contained"
-        onClick={() => {
-          dispatch({ type: 'success', payload: 1 });
-        }}
-      >
+      <Button variant="contained" onClick={attackSuccess}>
         Attack Good
       </Button>
     </>
