@@ -1,4 +1,3 @@
-import { ArtTrack } from '@mui/icons-material';
 import { Button, Typography } from '@mui/material';
 import React, { useReducer } from 'react';
 
