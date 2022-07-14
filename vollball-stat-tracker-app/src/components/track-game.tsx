@@ -1,22 +1,50 @@
 import { Button, Typography } from '@mui/material';
 import React, { useReducer } from 'react';
 
-type VolleyballActionResult = {
+interface VbActionResult {
   success: number;
   error: number;
-};
+}
+
+interface VbActionOffenseResult extends VbActionResult {
+  point: number;
+}
 
 type VolleyBallStats = {
-  attack: VolleyballActionResult;
-  defence: VolleyballActionResult;
+  attack: VbActionOffenseResult;
+  block: VbActionOffenseResult;
+  serve: VbActionOffenseResult;
+  reception: VbActionResult;
+  dig: VbActionResult;
+  set: VbActionOffenseResult;
 };
 
 const initialState: VolleyBallStats = {
   attack: {
+    point: 0,
     success: 0,
     error: 0,
   },
-  defence: {
+  block: {
+    point: 0,
+    success: 0,
+    error: 0,
+  },
+  serve: {
+    point: 0,
+    success: 0,
+    error: 0,
+  },
+  reception: {
+    success: 0,
+    error: 0,
+  },
+  dig: {
+    success: 0,
+    error: 0,
+  },
+  set: {
+    point: 0,
     success: 0,
     error: 0,
   },
