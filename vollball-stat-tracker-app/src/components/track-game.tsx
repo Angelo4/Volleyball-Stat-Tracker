@@ -1,5 +1,6 @@
-import { Button, Typography } from '@mui/material';
-import React, { useReducer } from 'react';
+import { Button, Container, Grid, Typography } from '@mui/material';
+import { useReducer } from 'react';
+import ActionButtonGroup from './action-button-group';
 
 interface VbActionResult {
   success: number;
@@ -81,13 +82,20 @@ const TrackGame = () => {
   };
 
   return (
-    <>
-      <div>track-game</div>
+    <Container>
       <Typography variant="h4">{state.attack.success}</Typography>
       <Button variant="contained" onClick={attackSuccess}>
         Attack Good
       </Button>
-    </>
+      <Grid container spacing={2}>
+        <ActionButtonGroup title="Attack" point />
+        <ActionButtonGroup title="Block" point />
+        <ActionButtonGroup title="Serve" point />
+        <ActionButtonGroup title="Set" point />
+        <ActionButtonGroup title="Reception" />
+        <ActionButtonGroup title="Dig" />
+      </Grid>
+    </Container>
   );
 };
 
