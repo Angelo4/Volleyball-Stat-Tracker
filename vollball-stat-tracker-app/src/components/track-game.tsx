@@ -1,18 +1,15 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { useReducer } from 'react';
-import {
-  VbActionOffenseResult,
-  VbActionResult,
-} from '../models/VBActionResult';
+import { VbActionResult } from '../models/VBActionResult';
 import ActionButtonGroup from './action-button-group';
 
 type VolleyBallStats = {
-  attack: VbActionOffenseResult;
-  block: VbActionOffenseResult;
-  serve: VbActionOffenseResult;
+  attack: VbActionResult;
+  block: VbActionResult;
+  serve: VbActionResult;
   reception: VbActionResult;
   dig: VbActionResult;
-  set: VbActionOffenseResult;
+  set: VbActionResult;
 };
 
 const initialState: VolleyBallStats = {
@@ -72,7 +69,6 @@ const TrackGame = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const attackSuccess = () => {
-    console.log(state);
     dispatch({ type: 'success', payload: 1 });
   };
 
@@ -83,10 +79,10 @@ const TrackGame = () => {
         Attack Good
       </Button>
       <Grid container spacing={2}>
-        <ActionButtonGroup title="Attack" point />
-        <ActionButtonGroup title="Block" point />
-        <ActionButtonGroup title="Serve" point />
-        <ActionButtonGroup title="Set" point />
+        <ActionButtonGroup title="Attack" pointEnabled />
+        <ActionButtonGroup title="Block" pointEnabled />
+        <ActionButtonGroup title="Serve" pointEnabled />
+        <ActionButtonGroup title="Set" pointEnabled />
         <ActionButtonGroup title="Reception" />
         <ActionButtonGroup title="Dig" />
       </Grid>
