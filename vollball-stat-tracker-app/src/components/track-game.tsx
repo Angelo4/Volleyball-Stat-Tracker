@@ -1,15 +1,10 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { useReducer } from 'react';
+import {
+  VbActionOffenseResult,
+  VbActionResult,
+} from '../models/VBActionResult';
 import ActionButtonGroup from './action-button-group';
-
-interface VbActionResult {
-  success: number;
-  error: number;
-}
-
-interface VbActionOffenseResult extends VbActionResult {
-  point: number;
-}
 
 type VolleyBallStats = {
   attack: VbActionOffenseResult;
