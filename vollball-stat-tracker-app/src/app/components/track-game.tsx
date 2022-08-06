@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { useReducer } from 'react';
-import { VbActionResult } from '../models/VBActionResult';
+import { VbActionResult } from '../../models/VBActionResult';
 import ActionButtonGroup from './action-button-group';
 
 type VolleyBallStats = {

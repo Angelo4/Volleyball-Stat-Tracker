@@ -1,6 +1,9 @@
 import { Button, ButtonGroup, Grid, Typography } from '@mui/material';
 import { useReducer } from 'react';
-import { VbActionResult, VbActionResultType } from '../models/VBActionResult';
+import {
+  VbActionResult,
+  VbActionResultType,
+} from '../../models/VBActionResult';
 
 type ActionButtonGroupProps = {
   title: string;

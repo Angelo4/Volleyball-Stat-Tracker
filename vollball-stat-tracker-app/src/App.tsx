@@ -1,5 +1,5 @@
-import ResponsiveAppBar from './components/responsive-app-bar';
-import TrackGame from './components/track-game';
+import ResponsiveAppBar from './app/components/responsive-app-bar';
+import TrackGame from './app/components/track-game';
 
 function App() {
   return (
