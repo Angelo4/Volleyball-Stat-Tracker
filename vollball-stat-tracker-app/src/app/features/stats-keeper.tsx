@@ -41,6 +41,7 @@ const initialState: VolleyBallStats = {
   },
 };
 
+// Attack actions
 const incrementAttackPoint = createAction<undefined>(
   'attack/success/increment',
 );
@@ -49,9 +50,32 @@ const incrementAttackSuccess = createAction<undefined>(
 );
 const incrementAttackError = createAction<undefined>('attack/error/increment');
 
+// Block actions
 const incrementBlockPoint = createAction<undefined>('block/success/increment');
 const incrementBlockSuccess = createAction<undefined>('block/point/increment');
 const incrementBlockError = createAction<undefined>('block/error/increment');
+
+// Serve actions
+const incrementServePoint = createAction<undefined>('serve/success/increment');
+const incrementServeSuccess = createAction<undefined>('serve/point/increment');
+const incrementServeError = createAction<undefined>('serve/error/increment');
+
+// Reception actions
+const incrementReceptionSuccess = createAction<undefined>(
+  'reception/point/increment',
+);
+const incrementReceptionError = createAction<undefined>(
+  'reception/error/increment',
+);
+
+// Dig actions
+const incrementDigSuccess = createAction<undefined>('dig/point/increment');
+const incrementDigError = createAction<undefined>('dig/error/increment');
+
+// Set actions
+const incremenSetPoint = createAction<undefined>('set/success/increment');
+const incrementSetSuccess = createAction<undefined>('set/point/increment');
+const incrementSetError = createAction<undefined>('set/error/increment');
 
 export const sessionStatsReducer = createReducer(initialState, (builder) => {
   builder
