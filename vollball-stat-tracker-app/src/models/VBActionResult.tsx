@@ -9,3 +9,12 @@ export enum VbActionResultType {
   Success = 'success',
   Error = 'error',
 }
+
+export enum VBAction {
+  Attack = 'attack',
+  Block = 'block',
+  Serve = 'serve',
+  Set = 'set',
+  Reception = 'reception',
+  Dig = 'dig',
+}
