@@ -73,12 +73,13 @@ const incrementDigSuccess = createAction<undefined>('dig/point/increment');
 const incrementDigError = createAction<undefined>('dig/error/increment');
 
 // Set actions
-const incremenSetPoint = createAction<undefined>('set/success/increment');
+const incrementSetPoint = createAction<undefined>('set/success/increment');
 const incrementSetSuccess = createAction<undefined>('set/point/increment');
 const incrementSetError = createAction<undefined>('set/error/increment');
 
 export const sessionStatsReducer = createReducer(initialState, (builder) => {
   builder
+    // Attack cases
     .addCase(incrementAttackPoint, (state) => {
       state.attack.point =
         state.attack.point == null ? 0 : state.attack.point + 1;
@@ -89,6 +90,7 @@ export const sessionStatsReducer = createReducer(initialState, (builder) => {
     .addCase(incrementAttackError, (state) => {
       state.attack.error++;
     })
+    // Block cases
     .addCase(incrementBlockPoint, (state) => {
       state.block.point = state.block.point == null ? 0 : state.block.point++;
     })
@@ -97,6 +99,40 @@ export const sessionStatsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(incrementBlockError, (state) => {
       state.block.error++;
+    })
+    // Serve cases
+    .addCase(incrementServePoint, (state) => {
+      state.serve.point = state.serve.point == null ? 0 : state.serve.point + 1;
+    })
+    .addCase(incrementServeSuccess, (state) => {
+      state.serve.success++;
+    })
+    .addCase(incrementServeError, (state) => {
+      state.serve.error++;
+    })
+    // Reception cases
+    .addCase(incrementReceptionSuccess, (state) => {
+      state.reception.success++;
+    })
+    .addCase(incrementReceptionError, (state) => {
+      state.reception.error++;
+    })
+    // Dig cases
+    .addCase(incrementDigSuccess, (state) => {
+      state.dig.success++;
+    })
+    .addCase(incrementDigError, (state) => {
+      state.dig.error++;
+    })
+    // Set cases
+    .addCase(incrementSetPoint, (state) => {
+      state.set.point = state.set.point == null ? 0 : state.set.point + 1;
+    })
+    .addCase(incrementSetSuccess, (state) => {
+      state.set.success++;
+    })
+    .addCase(incrementSetError, (state) => {
+      state.set.error++;
     });
 });
 
