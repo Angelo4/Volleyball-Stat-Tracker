@@ -1,5 +1,5 @@
 import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
-import { VbActionResult } from '../../models/VBActionResult';
+import { VbActionResult } from '../models/VBActionResult';
 
 type VolleyBallStats = {
   attack: VbActionResult;

@@ -9,7 +9,7 @@ import {
   incrementAttackError,
   incrementAttackPoint,
   incrementAttackSuccess,
-} from '../features/stats-keeper';
+} from '../../redux/stats-keeper';
 
 type ActionButtonGroupProps = {
   title: string;

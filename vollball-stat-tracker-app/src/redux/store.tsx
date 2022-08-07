@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { sessionStatsReducer } from './features/stats-keeper';
+import { sessionStatsReducer } from './stats-keeper';
 
 export default configureStore({
   reducer: {
