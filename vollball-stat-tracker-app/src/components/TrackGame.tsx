@@ -1,7 +1,7 @@
 import { Container, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { statKeeperActions } from '../redux/stats-keeper';
-import ActionButtonGroup from './action-button-group';
+import { statKeeperActions } from '../redux/StatsKeeper';
+import ActionButtonGroup from './ActionButtonGroup';
 
 const TrackGame = () => {
   const dispatch = useDispatch();

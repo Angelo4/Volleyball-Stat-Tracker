@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ActionButtonGroup from '../action-button-group';
+import ActionButtonGroup from '../ActionButtonGroup';
 
 describe('<ActionButtonGroup/>', () => {
   describe('with points enabled', () => {
