@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Divider, Stack, Typography } from '@mui/material';
 import { connect } from 'react-redux';
 import SessionStatsContainer from '../components/SessionStatsContainer';
 import ActionCentreContainer from '../components/vb_action_center/ActionCentreContainer';
@@ -7,8 +7,11 @@ const TrackGame = () => {
   return (
     <>
       <Container>
-        <SessionStatsContainer />
-        <ActionCentreContainer />
+        <Stack spacing={2}>
+          <SessionStatsContainer />
+          <Divider />
+          <ActionCentreContainer />
+        </Stack>
       </Container>
     </>
   );
