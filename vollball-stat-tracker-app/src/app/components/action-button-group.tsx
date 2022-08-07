@@ -5,11 +5,7 @@ import {
   VbActionResult,
   VbActionResultType,
 } from '../../models/VBActionResult';
-import {
-  incrementAttackError,
-  incrementAttackPoint,
-  incrementAttackSuccess,
-} from '../../redux/stats-keeper';
+import { statKeeperActions } from '../../redux/stats-keeper';
 
 type ActionButtonGroupProps = {
   title: string;
@@ -26,15 +22,20 @@ const ActionButtonGroup = (props: ActionButtonGroupProps) => {
         {!!props.pointEnabled && (
           <Button
             color="success"
-            onClick={() => dispatch(incrementAttackPoint())}
+            onClick={() => dispatch(statKeeperActions.incrementAttackPoint())}
           >
             Point
           </Button>
         )}
-        <Button onClick={() => dispatch(incrementAttackSuccess())}>
+        <Button
+          onClick={() => dispatch(statKeeperActions.incrementAttackSuccess())}
+        >
           Success
         </Button>
-        <Button color="error" onClick={() => dispatch(incrementAttackError())}>
+        <Button
+          color="error"
+          onClick={() => dispatch(statKeeperActions.incrementAttackError())}
+        >
           Error
         </Button>
       </ButtonGroup>

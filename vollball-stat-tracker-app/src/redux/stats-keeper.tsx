@@ -136,4 +136,21 @@ export const sessionStatsReducer = createReducer(initialState, (builder) => {
     });
 });
 
-export { incrementAttackPoint, incrementAttackSuccess, incrementAttackError };
+export const statKeeperActions = {
+  incrementAttackPoint,
+  incrementAttackSuccess,
+  incrementAttackError,
+  incrementBlockPoint,
+  incrementBlockSuccess,
+  incrementBlockError,
+  incrementServePoint,
+  incrementServeSuccess,
+  incrementServeError,
+  incrementReceptionSuccess,
+  incrementReceptionError,
+  incrementDigSuccess,
+  incrementDigError,
+  incrementSetPoint,
+  incrementSetSuccess,
+  incrementSetError,
+};
