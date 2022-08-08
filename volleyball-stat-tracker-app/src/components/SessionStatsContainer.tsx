@@ -25,11 +25,7 @@ const SessionStatsContainer = (props: Props) => {
 
   return (
     <>
-      <ButtonGroup
-        color="secondary"
-        variant="outlined"
-        aria-label="text button group"
-      >
+      <ButtonGroup variant="outlined" aria-label="text button group">
         <Button>Scoring</Button>
         <Button>Attack</Button>
         <Button>Block</Button>
