@@ -1,4 +1,14 @@
-import { Button, ButtonGroup, Grid, Typography } from '@mui/material';
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CardContent,
+  createTheme,
+  Grid,
+  Typography,
+} from '@mui/material';
+
+const theme = createTheme({});
 
 type ActionButtonGroupProps = {
   title: string;
@@ -11,18 +21,22 @@ type ActionButtonGroupProps = {
 const ActionButtonGroup = (props: ActionButtonGroupProps) => {
   return (
     <Grid item xs={4}>
-      <Typography variant="h5">{props.title}</Typography>
-      <ButtonGroup variant="contained">
-        <Button color="error" onClick={props.handleErrorClick}>
-          Error
-        </Button>
-        <Button onClick={props.handleSuccessClick}>Success</Button>
-        {!!props.pointEnabled && (
-          <Button color="success" onClick={props.handlePointClick}>
-            Point
-          </Button>
-        )}
-      </ButtonGroup>
+      <Card>
+        <CardContent>
+          <Typography variant="h5">{props.title}</Typography>
+          <ButtonGroup variant="outlined">
+            <Button color="error" onClick={props.handleErrorClick}>
+              Error
+            </Button>
+            <Button onClick={props.handleSuccessClick}>Success</Button>
+            {!!props.pointEnabled && (
+              <Button color="success" onClick={props.handlePointClick}>
+                Point
+              </Button>
+            )}
+          </ButtonGroup>
+        </CardContent>
+      </Card>
     </Grid>
   );
 };
