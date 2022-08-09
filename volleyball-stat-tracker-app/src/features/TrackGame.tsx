@@ -1,19 +1,17 @@
-import { Container, Divider, Stack, Typography } from '@mui/material';
+import { Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import { connect } from 'react-redux';
 import SessionStatsContainer from '../components/SessionStatsContainer';
 import ActionCentreContainer from '../components/vb_action_center/ActionCentreContainer';
 
 const TrackGame = () => {
   return (
-    <>
-      <Container>
-        <Stack spacing={2}>
-          <SessionStatsContainer />
-          <Divider />
-          <ActionCentreContainer />
-        </Stack>
-      </Container>
-    </>
+    <Grid container spacing={2}>
+      <Grid item xs="auto">
+        <SessionStatsContainer />
+      </Grid>
+      {/* <Divider /> */}
+      <ActionCentreContainer />
+    </Grid>
   );
 };
 

@@ -3,16 +3,17 @@ import TrackGame from './features/TrackGame';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './utils/Theme';
+import { Container } from '@mui/material';
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <ResponsiveAppBar />
+    <ThemeProvider theme={theme}>
+      <ResponsiveAppBar />
+      <Container>
         <TrackGame />
-        <CssBaseline />
-      </ThemeProvider>
-    </>
+      </Container>
+      <CssBaseline />
+    </ThemeProvider>
   );
 }
 
