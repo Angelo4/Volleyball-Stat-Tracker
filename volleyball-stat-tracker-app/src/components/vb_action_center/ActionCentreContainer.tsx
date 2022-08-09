@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
@@ -7,7 +6,7 @@ const ActionCentreContainer = () => {
   const dispatch = useDispatch();
 
   return (
-    <Grid container spacing={2}>
+    <>
       <ActionButtonGroup
         title="Attack"
         pointEnabled
@@ -76,7 +75,7 @@ const ActionCentreContainer = () => {
           dispatch(statKeeperActions.incrementDigError());
         }}
       />
-    </Grid>
+    </>
   );
 };
 

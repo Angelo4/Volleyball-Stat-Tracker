@@ -2,12 +2,11 @@ import { connect } from 'react-redux';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, ButtonGroup } from '@mui/material';
 
 type Props = { sessionStats: any };
 
@@ -25,7 +24,7 @@ const SessionStatsContainer = (props: Props) => {
 
   return (
     <>
-      <ButtonGroup variant="outlined" aria-label="text button group">
+      {/* <ButtonGroup variant="outlined" aria-label="text button group">
         <Button>Scoring</Button>
         <Button>Attack</Button>
         <Button>Block</Button>
@@ -33,7 +32,7 @@ const SessionStatsContainer = (props: Props) => {
         <Button>Reception</Button>
         <Button>Dig</Button>
         <Button>Set</Button>
-      </ButtonGroup>
+      </ButtonGroup> */}
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">

@@ -3,12 +3,9 @@ import {
   ButtonGroup,
   Card,
   CardContent,
-  createTheme,
   Grid,
   Typography,
 } from '@mui/material';
-
-const theme = createTheme({});
 
 type ActionButtonGroupProps = {
   title: string;
@@ -20,7 +17,7 @@ type ActionButtonGroupProps = {
 
 const ActionButtonGroup = (props: ActionButtonGroupProps) => {
   return (
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card>
         <CardContent>
           <Typography variant="h5">{props.title}</Typography>
