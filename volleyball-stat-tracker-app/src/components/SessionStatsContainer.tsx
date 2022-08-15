@@ -1,19 +1,30 @@
-import { Button, ButtonGroup } from '@mui/material';
+import { Tab, Tabs } from '@mui/material';
+import React from 'react';
 import AttackSection from './vb_stat_display/AttackSection';
 
 const SessionStatsContainer = () => {
+  const [value, setValue] = React.useState('one');
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
     <>
-      <ButtonGroup variant="outlined" aria-label="text button group">
-        <Button>Overall</Button>
-        <Button>Scoring</Button>
-        <Button>Attack</Button>
-        <Button>Block</Button>
-        <Button>Serve</Button>
-        <Button>Reception</Button>
-        <Button>Dig</Button>
-        <Button>Set</Button>
-      </ButtonGroup>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="secondary tabs example"
+      >
+        <Tab value="Overall" label="Overall" />
+        <Tab value="Scoring" label="Scoring" />
+        <Tab value="Attack" label="Attack" />
+        <Tab value="Block" label="Block" />
+        <Tab value="Serve" label="Serve" />
+        <Tab value="Reception" label="Reception" />
+        <Tab value="Dig" label="Dig" />
+        <Tab value="Set" label="Set" />
+      </Tabs>
 
       <AttackSection />
     </>
