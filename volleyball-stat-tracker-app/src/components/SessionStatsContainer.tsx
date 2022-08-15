@@ -3,7 +3,7 @@ import React from 'react';
 import AttackSection from './vb_stat_display/AttackSection';
 
 const SessionStatsContainer = () => {
-  const [value, setValue] = React.useState('one');
+  const [value, setValue] = React.useState('Overall');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -26,7 +26,7 @@ const SessionStatsContainer = () => {
         <Tab value="Set" label="Set" />
       </Tabs>
 
-      <AttackSection />
+      {value == 'Attack' && <AttackSection />}
     </>
   );
 };
