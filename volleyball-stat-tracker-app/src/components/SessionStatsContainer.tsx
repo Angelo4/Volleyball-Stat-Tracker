@@ -7,6 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from '@mui/material';
 
 type Props = { sessionStats: any };
 
@@ -34,7 +41,18 @@ const SessionStatsContainer = (props: Props) => {
         <Button>Set</Button>
       </ButtonGroup> */}
 
-      <TableContainer component={Paper}>
+      <Card sx={{ maxWidth: 200, minHeight: 200 }}>
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Word of the Day
+          </Typography>
+          <Typography variant="h5" component="div">
+            benevolent
+          </Typography>
+        </CardContent>
+      </Card>
+
+      {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -55,7 +73,7 @@ const SessionStatsContainer = (props: Props) => {
             </TableRow>
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
     </>
   );
 };

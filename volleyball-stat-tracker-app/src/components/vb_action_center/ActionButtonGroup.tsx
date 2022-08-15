@@ -18,22 +18,18 @@ type ActionButtonGroupProps = {
 const ActionButtonGroup = (props: ActionButtonGroupProps) => {
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card>
-        <CardContent>
-          <Typography variant="h5">{props.title}</Typography>
-          <ButtonGroup variant="outlined">
-            <Button color="error" onClick={props.handleErrorClick}>
-              Error
-            </Button>
-            <Button onClick={props.handleSuccessClick}>Success</Button>
-            {!!props.pointEnabled && (
-              <Button color="success" onClick={props.handlePointClick}>
-                Point
-              </Button>
-            )}
-          </ButtonGroup>
-        </CardContent>
-      </Card>
+      <Typography variant="h5">{props.title}</Typography>
+      <ButtonGroup variant="outlined">
+        <Button color="error" onClick={props.handleErrorClick}>
+          Error
+        </Button>
+        <Button onClick={props.handleSuccessClick}>Success</Button>
+        {!!props.pointEnabled && (
+          <Button color="success" onClick={props.handlePointClick}>
+            Point
+          </Button>
+        )}
+      </ButtonGroup>
     </Grid>
   );
 };
