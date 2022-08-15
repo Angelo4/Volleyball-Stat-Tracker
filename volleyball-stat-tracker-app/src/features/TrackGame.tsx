@@ -1,4 +1,4 @@
-import { Divider, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import SessionStatsContainer from '../components/SessionStatsContainer';
 import ActionCentreContainer from '../components/vb_action_center/ActionCentreContainer';
 
