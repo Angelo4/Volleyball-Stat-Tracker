@@ -24,7 +24,6 @@ const DataBadge = (props: Props) => {
         >
           {props.title}
         </Typography>
-
         <Typography variant="h3" align="center">
           {props.data}
         </Typography>
