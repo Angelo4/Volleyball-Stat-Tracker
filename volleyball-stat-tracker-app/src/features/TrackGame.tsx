@@ -5,10 +5,10 @@ import ActionCenterContainer from '../components/vb_action_center/ActionCenterCo
 const TrackGame = () => {
   return (
     <Grid container spacing={2}>
+      <ActionCenterContainer />
       <Grid item xs={12}>
         <SessionStatsContainer />
       </Grid>
-      <ActionCenterContainer />
     </Grid>
   );
 };
