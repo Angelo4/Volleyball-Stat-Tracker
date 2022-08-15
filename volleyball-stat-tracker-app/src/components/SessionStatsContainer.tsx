@@ -12,8 +12,10 @@ import {
   Card,
   CardActions,
   CardContent,
+  Stack,
   Typography,
 } from '@mui/material';
+import theme from '../utils/Theme';
 
 type Props = { sessionStats: any };
 
@@ -41,16 +43,29 @@ const SessionStatsContainer = (props: Props) => {
         <Button>Set</Button>
       </ButtonGroup> */}
 
-      <Card sx={{ maxWidth: 200, minHeight: 200 }}>
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Word of the Day
+      <Paper
+        sx={{
+          maxWidth: 200,
+          minHeight: 200,
+          alignItems: 'center',
+          justifyContent: 'center',
+          display: 'flex',
+        }}
+      >
+        <Stack>
+          <Typography
+            variant="h5"
+            color={theme.palette.text.secondary}
+            gutterBottom
+          >
+            Points
           </Typography>
-          <Typography variant="h5" component="div">
-            benevolent
+
+          <Typography variant="h2">
+            {props.sessionStats.attack.point}
           </Typography>
-        </CardContent>
-      </Card>
+        </Stack>
+      </Paper>
 
       {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
