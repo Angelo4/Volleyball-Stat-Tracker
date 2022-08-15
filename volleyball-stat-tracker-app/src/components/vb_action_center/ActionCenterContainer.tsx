@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
 
-const ActionCentreContainer = () => {
+const ActionCenterContainer = () => {
   const dispatch = useDispatch();
 
   return (
@@ -88,4 +88,4 @@ const ActionCentreContainer = () => {
   );
 };
 
-export default ActionCentreContainer;
+export default ActionCenterContainer;

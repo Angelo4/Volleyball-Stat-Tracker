@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import SessionStatsContainer from '../components/SessionStatsContainer';
-import ActionCentreContainer from '../components/vb_action_center/ActionCentreContainer';
+import ActionCenterContainer from '../components/vb_action_center/ActionCenterContainer';
 
 const TrackGame = () => {
   return (
@@ -8,10 +8,9 @@ const TrackGame = () => {
       <Grid item xs={12}>
         <SessionStatsContainer />
       </Grid>
-      <ActionCentreContainer />
+      <ActionCenterContainer />
     </Grid>
   );
 };
 
-//sdfgjnrgosng
 export default TrackGame;
