@@ -1,21 +1,6 @@
+import { Button, ButtonGroup, Grid } from '@mui/material';
 import { connect } from 'react-redux';
-
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Stack,
-  Typography,
-} from '@mui/material';
-import theme from '../utils/Theme';
+import DataBadge from './vb_stat_display/DataBadge';
 
 type Props = { sessionStats: any };
 
@@ -33,7 +18,7 @@ const SessionStatsContainer = (props: Props) => {
 
   return (
     <>
-      {/* <ButtonGroup variant="outlined" aria-label="text button group">
+      <ButtonGroup variant="outlined" aria-label="text button group">
         <Button>Scoring</Button>
         <Button>Attack</Button>
         <Button>Block</Button>
@@ -41,54 +26,31 @@ const SessionStatsContainer = (props: Props) => {
         <Button>Reception</Button>
         <Button>Dig</Button>
         <Button>Set</Button>
-      </ButtonGroup> */}
+      </ButtonGroup>
 
-      <Paper
-        sx={{
-          maxWidth: 200,
-          minHeight: 200,
-          alignItems: 'center',
-          justifyContent: 'center',
-          display: 'flex',
-        }}
-      >
-        <Stack>
-          <Typography
-            variant="h5"
-            color={theme.palette.text.secondary}
-            gutterBottom
-          >
-            Points
-          </Typography>
-
-          <Typography variant="h2">
-            {props.sessionStats.attack.point}
-          </Typography>
-        </Stack>
-      </Paper>
-
-      {/* <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Point</TableCell>
-              <TableCell>Errors</TableCell>
-              <TableCell>Attempts</TableCell>
-              <TableCell>Total</TableCell>
-              <TableCell>Efficiency %</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow key={1}>
-              <TableCell>{props.sessionStats.attack.point}</TableCell>
-              <TableCell>{props.sessionStats.attack.error}</TableCell>
-              <TableCell>{props.sessionStats.attack.success}</TableCell>
-              <TableCell>{total}</TableCell>
-              <TableCell>{`${(calculation * 100).toFixed(2)}%`}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer> */}
+      <Grid container spacing={2}>
+        <Grid item>
+          <DataBadge title="Points" data={props.sessionStats.attack.point} />
+        </Grid>
+        <Grid item>
+          <DataBadge title="Errors" data={props.sessionStats.attack.error} />
+        </Grid>
+        <Grid item>
+          <DataBadge
+            title="Attempts"
+            data={props.sessionStats.attack.success}
+          />
+        </Grid>
+        <Grid item>
+          <DataBadge title="Total" data={total} />
+        </Grid>
+        <Grid item>
+          <DataBadge
+            title="Efficiency"
+            data={`${(calculation * 100).toFixed(2)}%`}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };
