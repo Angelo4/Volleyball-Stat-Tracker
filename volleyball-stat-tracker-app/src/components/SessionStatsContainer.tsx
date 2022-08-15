@@ -48,7 +48,7 @@ const SessionStatsContainer = (props: Props) => {
         <Grid item>
           <DataBadge
             title="Efficiency"
-            data={`${(calculation * 100).toFixed(2)}%`}
+            data={`${(calculation * 100).toFixed(1)}%`}
           />
         </Grid>
       </Grid>
