@@ -1,0 +1,48 @@
+import { Grid } from '@mui/material';
+import React from 'react';
+import { connect } from 'react-redux';
+import DataBadge from './DataBadge';
+
+type Props = { sessionStats: any };
+
+const AttackSection = (props: Props) => {
+  const total: number =
+    props.sessionStats.attack.point +
+    props.sessionStats.attack.error +
+    props.sessionStats.attack.success;
+
+  const calculation: number =
+    total === 0
+      ? 0
+      : (props.sessionStats.attack.point - props.sessionStats.attack.error) /
+        total;
+
+  return (
+    <Grid container spacing={2}>
+      <Grid item>
+        <DataBadge title="Points" data={props.sessionStats.attack.point} />
+      </Grid>
+      <Grid item>
+        <DataBadge title="Errors" data={props.sessionStats.attack.error} />
+      </Grid>
+      <Grid item>
+        <DataBadge title="Attempts" data={props.sessionStats.attack.success} />
+      </Grid>
+      <Grid item>
+        <DataBadge title="Total" data={total} />
+      </Grid>
+      <Grid item>
+        <DataBadge
+          title="Efficiency"
+          data={`${(calculation * 100).toFixed(1)}%`}
+        />
+      </Grid>
+    </Grid>
+  );
+};
+
+const mapStateToProps = (state: any) => {
+  return { sessionStats: state.sessionStats };
+};
+
+export default connect(mapStateToProps)(AttackSection);
