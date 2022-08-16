@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import { connect } from 'react-redux';
+import { AppState } from '../../redux/Store';
 import DataBadge from './DataBadge';
 
 type Props = {
@@ -38,10 +39,12 @@ const AttackSection = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
   console.log(state);
   return {
-    point: state.sessionStats.attack.point,
+    point: state.sessionStats.attack.point
+      ? state.sessionStats.attack.point
+      : 0,
     error: state.sessionStats.attack.error,
     success: state.sessionStats.attack.success,
   };
