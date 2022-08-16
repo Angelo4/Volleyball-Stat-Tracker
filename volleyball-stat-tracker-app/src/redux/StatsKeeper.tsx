@@ -92,7 +92,7 @@ export const sessionStatsReducer = createReducer(initialState, (builder) => {
     })
     // Block cases
     .addCase(incrementBlockPoint, (state) => {
-      state.block.point = state.block.point == null ? 0 : state.block.point++;
+      state.block.point = state.block.point == null ? 0 : state.block.point + 1;
     })
     .addCase(incrementBlockSuccess, (state) => {
       state.block.success++;
