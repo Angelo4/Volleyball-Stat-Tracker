@@ -40,7 +40,6 @@ const AttackSection = (props: Props) => {
 };
 
 const mapStateToProps = (state: AppState) => {
-  console.log(state);
   return {
     point: state.sessionStats.attack.point
       ? state.sessionStats.attack.point
