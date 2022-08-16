@@ -40,7 +40,6 @@ const BlockSection = (props: Props) => {
 };
 
 const mapStateToProps = (state: AppState) => {
-  console.log(state);
   return {
     point: state.sessionStats.block.point ? state.sessionStats.block.point : 0,
     error: state.sessionStats.block.error,

@@ -1,7 +1,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 import { VbActionResult } from '../models/VBActionResult';
 
-type VolleyBallStats = {
+export type VolleyBallStats = {
   attack: VbActionResult;
   block: VbActionResult;
   serve: VbActionResult;

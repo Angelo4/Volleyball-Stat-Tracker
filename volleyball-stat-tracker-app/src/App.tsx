@@ -1,6 +1,6 @@
 import ResponsiveAppBar from './components/ResponsiveAppBar';
 import TrackGame from './features/TrackGame/TrackGame';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './utils/Theme';
 import { Container } from '@mui/material';
