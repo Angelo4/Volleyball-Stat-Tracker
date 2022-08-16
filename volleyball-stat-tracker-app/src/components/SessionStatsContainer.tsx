@@ -1,7 +1,7 @@
 import { Tab, Tabs } from '@mui/material';
 import React from 'react';
-import AttackSection from './vb_stat_display/AttackSection';
-import BlockSection from './vb_stat_display/BlockSection';
+import AttackSection from '../features/TrackGame/AttackSection';
+import BlockSection from '../features/TrackGame/BlockSection';
 
 const SessionStatsContainer = () => {
   const [value, setValue] = React.useState('Overall');
@@ -27,6 +27,7 @@ const SessionStatsContainer = () => {
         <Tab value="Set" label="Set" />
       </Tabs>
 
+      {value == 'Overall' && <AttackSection />}
       {value == 'Attack' && <AttackSection />}
       {value == 'Block' && <BlockSection />}
     </>

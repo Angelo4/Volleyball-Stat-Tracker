@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import { connect } from 'react-redux';
+import DataBadge from '../../components/vb_stat_display/DataBadge';
 import { AppState } from '../../redux/Store';
-import DataBadge from './DataBadge';
 
 type Props = {
   point: number;
