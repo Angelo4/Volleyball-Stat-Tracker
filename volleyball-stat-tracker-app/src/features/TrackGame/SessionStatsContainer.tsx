@@ -17,6 +17,8 @@ const SessionStatsContainer = () => {
         value={value}
         onChange={handleChange}
         aria-label="secondary tabs example"
+        variant="scrollable"
+        scrollButtons="auto"
       >
         <Tab value="Overall" label="Overall" />
         <Tab value="Scoring" label="Scoring" />
