@@ -10,7 +10,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ResponsiveAppBar />
-      <Container>
+      <Container sx={{ paddingTop: 2 }}>
         <TrackGame />
       </Container>
     </ThemeProvider>
