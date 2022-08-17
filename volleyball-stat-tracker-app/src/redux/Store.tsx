@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { sessionStatsReducer } from './StatsKeeper';
+import undoable from 'redux-undo';
 
 export const store = configureStore({
   reducer: {
-    sessionStats: sessionStatsReducer,
+    sessionStats: undoable(sessionStatsReducer),
   },
 });
 

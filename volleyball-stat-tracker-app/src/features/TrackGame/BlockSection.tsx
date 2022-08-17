@@ -29,9 +29,9 @@ const BlockSection = (props: VbActionResult) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    point: state.sessionStats.block.point || 0,
-    error: state.sessionStats.block.error,
-    success: state.sessionStats.block.success,
+    point: state.sessionStats.present.block.point || 0,
+    error: state.sessionStats.present.block.error,
+    success: state.sessionStats.present.block.success,
   };
 };
 

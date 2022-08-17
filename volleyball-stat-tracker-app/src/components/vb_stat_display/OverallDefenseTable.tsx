@@ -59,7 +59,7 @@ export const OverallDefenseTable = (props: VolleyBallStats) => {
 };
 
 export const mapStateToProps = (state: AppState) => {
-  return state.sessionStats;
+  return state.sessionStats.present;
 };
 
 export default connect(mapStateToProps)(OverallDefenseTable);

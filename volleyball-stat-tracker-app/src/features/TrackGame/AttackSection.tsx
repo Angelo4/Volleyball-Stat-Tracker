@@ -29,9 +29,9 @@ const AttackSection = (props: VbActionResult) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    point: state.sessionStats.attack.point || 0,
-    error: state.sessionStats.attack.error,
-    success: state.sessionStats.attack.success,
+    point: state.sessionStats.present.attack.point || 0,
+    error: state.sessionStats.present.attack.error,
+    success: state.sessionStats.present.attack.success,
   };
 };
 
