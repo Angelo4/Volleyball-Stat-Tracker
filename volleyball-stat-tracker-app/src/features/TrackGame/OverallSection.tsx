@@ -52,7 +52,7 @@ const OverallSection = (props: VolleyBallStats) => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ maxWidth: 600 }}>
           <Table>
             <TableHead>
               <TableRow>
@@ -80,7 +80,7 @@ const OverallSection = (props: VolleyBallStats) => {
         </TableContainer>
       </Grid>
       <Grid item xs={12}>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ maxWidth: 600 }}>
           <Table>
             <TableHead>
               <TableRow>
