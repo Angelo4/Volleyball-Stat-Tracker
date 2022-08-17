@@ -1,4 +1,5 @@
 import {
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -14,13 +15,24 @@ import { AppState } from '../../redux/Store';
 import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
 
 const createScoringRow = (name: string, result: VbActionResult) => {
-  const point = result.point ? result.point : 0;
+  const point = result.point || 0;
   return {
     name,
     point,
     ...result,
     total: vbActionTotal(result),
     efficiency: vbActionEfficiency(result),
+  };
+};
+
+const createDefenseRow = (name: string, result: VbActionResult) => {
+  const point = result.point || 0;
+  return {
+    name,
+    point,
+    ...result,
+    total: vbActionTotal(result),
+    efficiency: vbActionEfficiency(result, true),
   };
 };
 
@@ -32,40 +44,68 @@ const OverallSection = (props: VolleyBallStats) => {
     createScoringRow('Set', props.set),
   ];
 
+  const defenseRows: ReturnType<typeof createScoringRow>[] = [
+    createDefenseRow('Reception', props.reception),
+    createDefenseRow('Dig', props.dig),
+  ];
+
   return (
-    <>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Scoring Category</TableCell>
-              <TableCell align="right">Points</TableCell>
-              <TableCell align="right">Error</TableCell>
-              <TableCell align="right">Attempts/Touches</TableCell>
-              <TableCell align="right">Total</TableCell>
-              <TableCell align="right">Efficiency</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {scoringRows.map((row) => (
-              <TableRow
-                key={row.name}
-                // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.point}</TableCell>
-                <TableCell align="right">{row.error}</TableCell>
-                <TableCell align="right">{row.success}</TableCell>
-                <TableCell align="right">{row.total}</TableCell>
-                <TableCell align="right">{`${row.efficiency}%`}</TableCell>
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell align="center">Points</TableCell>
+                <TableCell align="center">Error</TableCell>
+                <TableCell align="center">Attempts/Touches</TableCell>
+                <TableCell align="center">Total</TableCell>
+                <TableCell align="center">Efficiency</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
+            </TableHead>
+            <TableBody>
+              {scoringRows.map((row) => (
+                <TableRow hover>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell align="center">{row.point}</TableCell>
+                  <TableCell align="center">{row.error}</TableCell>
+                  <TableCell align="center">{row.success}</TableCell>
+                  <TableCell align="center">{row.total}</TableCell>
+                  <TableCell align="center">{`${row.efficiency}%`}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+      <Grid item xs={12}>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell align="center">Success</TableCell>
+                <TableCell align="center">Error</TableCell>
+                <TableCell align="center">Total</TableCell>
+                <TableCell align="center">Efficiency</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {defenseRows.map((row) => (
+                <TableRow hover>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell align="center">{row.success}</TableCell>
+                  <TableCell align="center">{row.error}</TableCell>
+                  <TableCell align="center">{row.total}</TableCell>
+                  <TableCell align="center">{`${row.efficiency}%`}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+    </Grid>
   );
 };
 
