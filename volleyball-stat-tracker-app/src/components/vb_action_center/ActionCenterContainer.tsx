@@ -1,11 +1,4 @@
-import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Button, ButtonGroup, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
@@ -18,6 +11,23 @@ const ActionCenterContainer = () => {
   return (
     <Grid item xs={12}>
       <Grid container spacing={2}>
+        <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
+          <ButtonGroup>
+            <Button
+              onClick={() => {
+                dispatch(ActionCreators.undo());
+              }}
+            >
+              <Undo />
+            </Button>
+            <Button>
+              <Redo />
+            </Button>
+            <Button>
+              <MoreHoriz />
+            </Button>
+          </ButtonGroup>
+        </Grid>
         <ActionButtonGroup
           title="Attack"
           pointEnabled
@@ -88,23 +98,6 @@ const ActionCenterContainer = () => {
             dispatch(statKeeperActions.incrementDigError());
           }}
         />
-        <Grid item xs={12}>
-          <ButtonGroup>
-            <Button
-              onClick={() => {
-                dispatch(ActionCreators.undo());
-              }}
-            >
-              <Undo />
-            </Button>
-            <Button>
-              <Redo />
-            </Button>
-            <Button>
-              <MoreHoriz />
-            </Button>
-          </ButtonGroup>
-        </Grid>
       </Grid>
     </Grid>
   );

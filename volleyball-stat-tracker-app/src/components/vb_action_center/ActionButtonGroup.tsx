@@ -21,22 +21,32 @@ const ActionButtonGroup = (props: ActionButtonGroupProps) => {
         display: 'flex',
       }}
     >
-      <Stack>
-        <Typography variant="h5" align="center">
-          {props.title}
-        </Typography>
-        <ButtonGroup variant="outlined">
-          <Button color="error" onClick={props.handleErrorClick}>
-            Error
-          </Button>
-          <Button onClick={props.handleSuccessClick}>Success</Button>
-          {!!props.pointEnabled && (
-            <Button color="success" onClick={props.handlePointClick}>
-              Point
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography variant="h5" align="center">
+            {props.title}
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <ButtonGroup variant="outlined" fullWidth>
+            <Button color="error" onClick={props.handleErrorClick} fullWidth>
+              Error
             </Button>
-          )}
-        </ButtonGroup>
-      </Stack>
+            <Button onClick={props.handleSuccessClick} fullWidth>
+              Success
+            </Button>
+            {!!props.pointEnabled && (
+              <Button
+                color="success"
+                onClick={props.handlePointClick}
+                fullWidth
+              >
+                Point
+              </Button>
+            )}
+          </ButtonGroup>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };
