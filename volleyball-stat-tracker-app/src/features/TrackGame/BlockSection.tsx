@@ -1,24 +1,15 @@
 import { Grid } from '@mui/material';
 import { connect } from 'react-redux';
 import DataBadge from '../../components/vb_stat_display/DataBadge';
+import { VbActionResult } from '../../models/VBActionResult';
 import { AppState } from '../../redux/Store';
+import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
 
-type Props = {
-  point: number;
-  error: number;
-  success: number;
-};
-
-const BlockSection = (props: Props) => {
-  const total: number = props.point + props.error + props.success;
-
-  const calculation: number =
-    total === 0 ? 0 : (props.point - props.error) / total;
-
+const BlockSection = (props: VbActionResult) => {
   return (
     <Grid container spacing={2} sx={{ paddingTop: 2 }}>
       <Grid item>
-        <DataBadge title="Points" data={props.point} />
+        <DataBadge title="Points" data={props.point || 0} />
       </Grid>
       <Grid item>
         <DataBadge title="Errors" data={props.error} />
@@ -27,13 +18,10 @@ const BlockSection = (props: Props) => {
         <DataBadge title="Touches" data={props.success} />
       </Grid>
       <Grid item>
-        <DataBadge title="Total" data={total} />
+        <DataBadge title="Total" data={vbActionTotal(props)} />
       </Grid>
       <Grid item>
-        <DataBadge
-          title="Efficiency"
-          data={`${(calculation * 100).toFixed(1)}%`}
-        />
+        <DataBadge title="Efficiency" data={`${vbActionEfficiency(props)}%`} />
       </Grid>
     </Grid>
   );
