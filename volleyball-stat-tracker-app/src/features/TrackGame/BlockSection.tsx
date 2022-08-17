@@ -29,7 +29,7 @@ const BlockSection = (props: VbActionResult) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    point: state.sessionStats.block.point ? state.sessionStats.block.point : 0,
+    point: state.sessionStats.block.point || 0,
     error: state.sessionStats.block.error,
     success: state.sessionStats.block.success,
   };
