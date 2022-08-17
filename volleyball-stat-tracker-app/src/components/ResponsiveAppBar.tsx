@@ -60,7 +60,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            Volleyball Stats
+            VolleyLog
           </Typography>
 
           <Box
