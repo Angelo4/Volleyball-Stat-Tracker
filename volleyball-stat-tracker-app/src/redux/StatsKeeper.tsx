@@ -77,6 +77,9 @@ const incrementSetPoint = createAction<undefined>('set/success/increment');
 const incrementSetSuccess = createAction<undefined>('set/point/increment');
 const incrementSetError = createAction<undefined>('set/error/increment');
 
+// Clear state
+const clearState = createAction<undefined>('clear');
+
 export const sessionStatsReducer = createReducer(initialState, (builder) => {
   builder
     // Attack cases
@@ -133,6 +136,15 @@ export const sessionStatsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(incrementSetError, (state) => {
       state.set.error++;
+    })
+    // Clear case
+    .addCase(clearState, (state) => {
+      state.attack = initialState.attack;
+      state.block = initialState.block;
+      state.serve = initialState.serve;
+      state.set = initialState.set;
+      state.reception = initialState.reception;
+      state.dig = initialState.dig;
     });
 });
 
@@ -153,4 +165,5 @@ export const statKeeperActions = {
   incrementSetPoint,
   incrementSetSuccess,
   incrementSetError,
+  clearState,
 };
