@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@mui/material';
+import { Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
 import AttackSection from './AttackSection';
 import BlockSection from './BlockSection';
@@ -29,8 +29,33 @@ const SessionStatsContainer = () => {
       </Tabs>
 
       {value === 'Overall' && <OverallSection />}
+      {value === 'Scoring' && (
+        <Typography variant="h5" sx={{ paddingTop: 2 }}>
+          Coming soon...
+        </Typography>
+      )}
       {value === 'Attack' && <AttackSection />}
       {value === 'Block' && <BlockSection />}
+      {value === 'Serve' && (
+        <Typography variant="h5" sx={{ paddingTop: 2 }}>
+          Coming soon...
+        </Typography>
+      )}
+      {value === 'Reception' && (
+        <Typography variant="h5" sx={{ paddingTop: 2 }}>
+          Coming soon...
+        </Typography>
+      )}
+      {value === 'Dig' && (
+        <Typography variant="h5" sx={{ paddingTop: 2 }}>
+          Coming soon...
+        </Typography>
+      )}
+      {value === 'Set' && (
+        <Typography variant="h5" sx={{ paddingTop: 2 }}>
+          Coming soon...
+        </Typography>
+      )}
     </>
   );
 };
