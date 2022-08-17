@@ -7,7 +7,7 @@ import { VbActionResult } from '../../models/VBActionResult';
 
 const AttackSection = (props: VbActionResult) => {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ paddingTop: 2 }}>
       <Grid item>
         <DataBadge title="Points" data={props.point || 0} />
       </Grid>

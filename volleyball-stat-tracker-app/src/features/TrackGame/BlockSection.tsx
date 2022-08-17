@@ -16,7 +16,7 @@ const BlockSection = (props: Props) => {
     total === 0 ? 0 : (props.point - props.error) / total;
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ paddingTop: 2 }}>
       <Grid item>
         <DataBadge title="Points" data={props.point} />
       </Grid>
