@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
-import ActionCentreOptions from './ActionCentreOptions';
+import ActionCenterOptions from './ActionCenterOptions';
 
 const ActionCenterContainer = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const ActionCenterContainer = () => {
     <Grid item xs={12}>
       <Grid container spacing={2}>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
-          <ActionCentreOptions />
+          <ActionCenterOptions />
         </Grid>
         <ActionButtonGroup
           title="Attack"
