@@ -1,7 +1,8 @@
-import { Card, CardContent, Grid } from '@mui/material';
+import { Button, Card, CardContent, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
+import { ActionCreators } from 'redux-undo';
 
 const ActionCenterContainer = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,13 @@ const ActionCenterContainer = () => {
                 dispatch(statKeeperActions.incrementDigError());
               }}
             />
+            <Button
+              onClick={() => {
+                dispatch(ActionCreators.undo());
+              }}
+            >
+              Undo
+            </Button>
           </Grid>
         </CardContent>
       </Card>
