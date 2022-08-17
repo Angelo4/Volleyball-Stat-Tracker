@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { VbActionResult } from '../../models/VBActionResult';
 import { VolleyBallStats } from '../../redux/StatsKeeper';
 import { AppState } from '../../redux/Store';
+import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
 
 const createScoringRow = (name: string, result: VbActionResult) => {
   const point = result.point ? result.point : 0;
@@ -18,7 +19,8 @@ const createScoringRow = (name: string, result: VbActionResult) => {
     name,
     point,
     ...result,
-    total: result.error + result.success + point,
+    total: vbActionTotal(result),
+    efficiency: vbActionEfficiency(result),
   };
 };
 
@@ -36,7 +38,7 @@ const OverallSection = (props: VolleyBallStats) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Scoring</TableCell>
+              <TableCell>Scoring Category</TableCell>
               <TableCell align="right">Points</TableCell>
               <TableCell align="right">Error</TableCell>
               <TableCell align="right">Attempts/Touches</TableCell>
@@ -57,7 +59,7 @@ const OverallSection = (props: VolleyBallStats) => {
                 <TableCell align="right">{row.error}</TableCell>
                 <TableCell align="right">{row.success}</TableCell>
                 <TableCell align="right">{row.total}</TableCell>
-                <TableCell align="right">00.00%</TableCell>
+                <TableCell align="right">{`${row.efficiency}%`}</TableCell>
               </TableRow>
             ))}
           </TableBody>
