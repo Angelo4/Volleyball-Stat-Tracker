@@ -16,6 +16,8 @@ const StatsStackGraph = (props: VolleyBallStats) => {
     { action: 'Block', total: props.block.error },
     { action: 'Serve', total: props.serve.error },
     { action: 'Set', total: props.set.error },
+    { action: 'Reception', total: props.reception.error },
+    { action: 'Dig', total: props.dig.error },
   ];
 
   const success = [
@@ -23,6 +25,8 @@ const StatsStackGraph = (props: VolleyBallStats) => {
     { action: 'Block', total: props.block.success },
     { action: 'Serve', total: props.serve.success },
     { action: 'Set', total: props.set.success },
+    { action: 'Reception', total: props.reception.success },
+    { action: 'Dig', total: props.dig.success },
   ];
 
   const point = [
@@ -30,14 +34,16 @@ const StatsStackGraph = (props: VolleyBallStats) => {
     { action: 'Block', total: props.block.point || 0 },
     { action: 'Serve', total: props.serve.point || 0 },
     { action: 'Set', total: props.set.point || 0 },
+    { action: 'Reception', total: 0 },
+    { action: 'Dig', total: 0 },
   ];
 
   return (
-    <Paper sx={{ padding: 2 }}>
+    <Paper>
       <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
         <VictoryAxis
-          tickValues={['Attack', 'Block', 'Serve', 'Set']}
-          tickFormat={['Attack', 'Block', 'Serve', 'Set']}
+          tickValues={['Attack', 'Block', 'Serve', 'Set', 'Reception', 'Dig']}
+          tickFormat={['Attack', 'Block', 'Serve', 'Set', 'Reception', 'Dig']}
         />
         <VictoryAxis dependentAxis domain={[0, 10]} />
         <VictoryStack>
