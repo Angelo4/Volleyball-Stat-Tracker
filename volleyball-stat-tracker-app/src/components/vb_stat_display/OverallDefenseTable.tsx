@@ -11,7 +11,11 @@ import { connect } from 'react-redux';
 import { VbActionResult } from '../../models/VBActionResult';
 import { VolleyBallStats } from '../../redux/StatsKeeper';
 import { AppState } from '../../redux/Store';
-import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
+import {
+  vbActionEfficiency,
+  vbActionTotal,
+  vbStatsDefenseTotal,
+} from '../../utils/Calculator';
 
 const createDefenseRow = (name: string, result: VbActionResult) => {
   const point = result.point || 0;
@@ -25,9 +29,19 @@ const createDefenseRow = (name: string, result: VbActionResult) => {
 };
 
 export const OverallDefenseTable = (props: VolleyBallStats) => {
+  const final = vbStatsDefenseTotal(props);
+
   const defenseRows: ReturnType<typeof createDefenseRow>[] = [
     createDefenseRow('Reception', props.reception),
     createDefenseRow('Dig', props.dig),
+    {
+      name: 'Overall',
+      point: 0, // TODO: Change this when advanced stats is enabled
+      success: final.success,
+      error: final.error,
+      total: final.total,
+      efficiency: final.efficiency,
+    },
   ];
 
   return (

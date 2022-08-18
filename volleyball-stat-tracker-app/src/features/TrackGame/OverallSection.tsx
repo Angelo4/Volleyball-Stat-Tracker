@@ -1,7 +1,4 @@
 import { Grid } from '@mui/material';
-import DataBadge from '../../components/vb_stat_display/DataBadge';
-import OverallDefenseTable from '../../components/vb_stat_display/OverallDefenseTable';
-import OverallScoringTable from '../../components/vb_stat_display/OverallScoringTable';
 import OverallTable from '../../components/vb_stat_display/OverallTable';
 
 export const OverallSection = () => {
@@ -10,9 +7,7 @@ export const OverallSection = () => {
       <Grid item xs={6}>
         <OverallTable />
       </Grid>
-      <Grid item xs={6}>
-        <DataBadge title="Total Points" data={5} />
-      </Grid>
+      <Grid item xs={6}></Grid>
     </Grid>
   );
 };

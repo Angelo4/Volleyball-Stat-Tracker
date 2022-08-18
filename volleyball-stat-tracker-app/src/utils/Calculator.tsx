@@ -42,10 +42,28 @@ export const vbStatsOffenseTotal = (stats: VolleyBallStats) => {
   const overallTotal = totalPoints + totalError + totalSuccess;
 
   const overallEfficiency =
-    ((totalPoints + totalSuccess - totalError) / overallTotal) * 100;
+    ((totalPoints + totalSuccess - totalError) / overallTotal) * 100 || 0;
 
   return {
     point: totalPoints,
+    error: totalError,
+    success: totalSuccess,
+    total: overallTotal,
+    efficiency: overallEfficiency.toFixed(1),
+  };
+};
+
+export const vbStatsDefenseTotal = (stats: VolleyBallStats) => {
+  const totalError = stats.reception.error + stats.dig.error;
+
+  const totalSuccess = stats.reception.success + stats.dig.success;
+
+  const overallTotal = totalError + totalSuccess;
+
+  const overallEfficiency =
+    ((totalSuccess - totalError) / overallTotal) * 100 || 0;
+
+  return {
     error: totalError,
     success: totalSuccess,
     total: overallTotal,
