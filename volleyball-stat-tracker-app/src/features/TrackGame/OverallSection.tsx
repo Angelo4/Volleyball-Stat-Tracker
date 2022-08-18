@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import OverallTable from '../../components/vb_stat_display/OverallTable';
+import StatsStackGraph from '../../components/vb_stat_display/StatsStackGraph';
 
 export const OverallSection = () => {
   return (
@@ -7,7 +8,9 @@ export const OverallSection = () => {
       <Grid item xs={6}>
         <OverallTable />
       </Grid>
-      <Grid item xs={6}></Grid>
+      <Grid item xs={6}>
+        <StatsStackGraph />
+      </Grid>
     </Grid>
   );
 };
