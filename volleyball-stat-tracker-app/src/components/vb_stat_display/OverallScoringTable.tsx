@@ -33,7 +33,7 @@ export const OverallScoringTable = (props: VolleyBallStats) => {
   ];
 
   return (
-    <TableContainer component={Paper} sx={{ maxWidth: 600 }}>
+    <TableContainer component={Paper} sx={{ maxWidth: 520 }}>
       <Table>
         <TableHead>
           <TableRow>
