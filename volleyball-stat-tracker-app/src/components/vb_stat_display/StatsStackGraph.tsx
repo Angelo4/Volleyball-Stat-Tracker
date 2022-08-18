@@ -1,3 +1,4 @@
+import { Paper } from '@mui/material';
 import { connect } from 'react-redux';
 import {
   VictoryAxis,
@@ -31,20 +32,21 @@ const StatsStackGraph = (props: VolleyBallStats) => {
     { action: 'Set', total: props.set.point || 0 },
   ];
 
-  // const StatsStackGraph = () => {
   return (
-    <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
-      <VictoryAxis
-        tickValues={['Attack', 'Block', 'Serve', 'Set']}
-        tickFormat={['Attack', 'Block', 'Serve', 'Set']}
-      />
-      <VictoryAxis dependentAxis tickFormat={(x) => `${x}`} />
-      <VictoryStack>
-        <VictoryBar data={error} x="action" y="total" />
-        <VictoryBar data={success} x="action" y="total" />
-        <VictoryBar data={point} x="action" y="total" />
-      </VictoryStack>
-    </VictoryChart>
+    <Paper sx={{ padding: 2 }}>
+      <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
+        <VictoryAxis
+          tickValues={['Attack', 'Block', 'Serve', 'Set']}
+          tickFormat={['Attack', 'Block', 'Serve', 'Set']}
+        />
+        <VictoryAxis dependentAxis domain={[0, 10]} />
+        <VictoryStack>
+          <VictoryBar data={error} x="action" y="total" />
+          <VictoryBar data={success} x="action" y="total" />
+          <VictoryBar data={point} x="action" y="total" />
+        </VictoryStack>
+      </VictoryChart>
+    </Paper>
   );
 };
 
