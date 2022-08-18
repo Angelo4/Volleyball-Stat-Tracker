@@ -1,9 +1,8 @@
-import { Button, ButtonGroup, Grid, Tooltip } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { statKeeperActions } from '../../redux/StatsKeeper';
 import ActionButtonGroup from './ActionButtonGroup';
-import { ActionCreators } from 'redux-undo';
-import { Undo, Redo, MoreHoriz } from '@mui/icons-material';
+import ActionCenterOptions from './ActionCenterOptions';
 
 const ActionCenterContainer = () => {
   const dispatch = useDispatch();
@@ -12,25 +11,7 @@ const ActionCenterContainer = () => {
     <Grid item xs={12}>
       <Grid container spacing={2}>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
-          <ButtonGroup>
-            <Tooltip title="Undo">
-              <Button
-                onClick={() => {
-                  dispatch(ActionCreators.undo());
-                }}
-              >
-                <Undo />
-              </Button>
-            </Tooltip>
-            <Tooltip title="Redo">
-              <Button>
-                <Redo />
-              </Button>
-            </Tooltip>
-            <Button>
-              <MoreHoriz />
-            </Button>
-          </ButtonGroup>
+          <ActionCenterOptions />
         </Grid>
         <ActionButtonGroup
           title="Attack"
