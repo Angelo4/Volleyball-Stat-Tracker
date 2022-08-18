@@ -11,7 +11,11 @@ import { connect } from 'react-redux';
 import { VbActionResult } from '../../models/VBActionResult';
 import { VolleyBallStats } from '../../redux/StatsKeeper';
 import { AppState } from '../../redux/Store';
-import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
+import {
+  vbActionEfficiency,
+  vbActionTotal,
+  vbStatsOffenseTotal,
+} from '../../utils/Calculator';
 
 const createScoringRow = (name: string, result: VbActionResult) => {
   const point = result.point || 0;
@@ -25,11 +29,21 @@ const createScoringRow = (name: string, result: VbActionResult) => {
 };
 
 export const OverallScoringTable = (props: VolleyBallStats) => {
+  const final = vbStatsOffenseTotal(props);
+
   const scoringRows: ReturnType<typeof createScoringRow>[] = [
     createScoringRow('Attack', props.attack),
     createScoringRow('Block', props.block),
     createScoringRow('Serve', props.serve),
     createScoringRow('Set', props.set),
+    {
+      name: 'Overall',
+      point: final.point,
+      error: final.error,
+      success: final.success,
+      total: final.total,
+      efficiency: final.efficiency,
+    },
   ];
 
   return (

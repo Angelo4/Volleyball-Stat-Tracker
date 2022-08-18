@@ -1,14 +1,14 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 import { VbActionResult } from '../models/VBActionResult';
 
-export type VolleyBallStats = {
+export interface VolleyBallStats {
   attack: VbActionResult;
   block: VbActionResult;
   serve: VbActionResult;
   reception: VbActionResult;
   dig: VbActionResult;
   set: VbActionResult;
-};
+}
 
 const initialState: VolleyBallStats = {
   attack: {

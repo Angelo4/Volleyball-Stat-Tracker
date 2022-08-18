@@ -1,15 +1,15 @@
 import { Grid } from '@mui/material';
-import OverallDefenseTable from '../../components/vb_stat_display/OverallDefenseTable';
-import OverallScoringTable from '../../components/vb_stat_display/OverallScoringTable';
+import OverallTable from '../../components/vb_stat_display/OverallTable';
+import StatsStackGraph from '../../components/vb_stat_display/StatsStackGraph';
 
 export const OverallSection = () => {
   return (
     <Grid container spacing={2} sx={{ paddingTop: 2 }}>
-      <Grid item xs={12}>
-        <OverallScoringTable />
+      <Grid item xs={6}>
+        <OverallTable />
       </Grid>
-      <Grid item xs={12}>
-        <OverallDefenseTable />
+      <Grid item xs={6}>
+        <StatsStackGraph />
       </Grid>
     </Grid>
   );
