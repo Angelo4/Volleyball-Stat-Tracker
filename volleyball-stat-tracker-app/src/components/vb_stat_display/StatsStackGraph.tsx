@@ -45,7 +45,7 @@ const StatsStackGraph = (props: VolleyBallStats) => {
           tickValues={['Attack', 'Block', 'Serve', 'Set', 'Reception', 'Dig']}
           tickFormat={['Attack', 'Block', 'Serve', 'Set', 'Reception', 'Dig']}
         />
-        <VictoryAxis dependentAxis domain={[0, 10]} />
+        <VictoryAxis dependentAxis domain={[0, 8]} />
         <VictoryStack>
           <VictoryBar data={error} x="action" y="total" />
           <VictoryBar data={success} x="action" y="total" />
