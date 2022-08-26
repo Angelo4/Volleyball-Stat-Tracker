@@ -21,13 +21,13 @@ const SessionStatsContainer = () => {
         scrollButtons="auto"
       >
         <Tab value="Overall" label="Overall" />
-        <Tab value="Scoring" label="Scoring" />
+        {/* <Tab value="Scoring" label="Scoring" />
         <Tab value="Attack" label="Attack" />
         <Tab value="Block" label="Block" />
         <Tab value="Serve" label="Serve" />
         <Tab value="Reception" label="Reception" />
         <Tab value="Dig" label="Dig" />
-        <Tab value="Set" label="Set" />
+        <Tab value="Set" label="Set" /> */}
       </Tabs>
 
       {value === 'Overall' && <OverallSection />}
