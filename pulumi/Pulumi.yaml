@@ -1,12 +1,38 @@
-name: pulum
+name: volleylog
 runtime: yaml
-description: A minimal AWS Pulumi YAML program
+description: All AWS resources for VolleyLog app.
 
 resources:
-  # Create an AWS resource (S3 Bucket)
-  my-bucket:
-    type: aws:s3:Bucket
+  volleylog-dynamodb:
+    type: aws:dynamodb:Table
+    properties:
+      attributes:
+        - name: UserId
+          type: S
+        - name: GameTitle
+          type: S
+        - name: TopScore
+          type: N
+      billingMode: PROVISIONED
+      globalSecondaryIndexes:
+        - hashKey: GameTitle
+          name: GameTitleIndex
+          nonKeyAttributes:
+            - UserId
+          projectionType: INCLUDE
+          rangeKey: TopScore
+          readCapacity: 10
+          writeCapacity: 10
+      hashKey: UserId
+      rangeKey: GameTitle
+      readCapacity: 20
+      tags:
+        Environment: production
+        Name: dynamodb-table-1
+      ttl:
+        attributeName: TimeToExist
+        enabled: false
+      writeCapacity: 20
 
 outputs:
-  # Export the name of the bucket
-  bucketName: ${my-bucket.id}
+  dynamodbName: ${volleylog-dynamodb.id}
