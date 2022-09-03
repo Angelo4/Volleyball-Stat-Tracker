@@ -1,31 +1,16 @@
 import { MoreHoriz, Redo, Undo } from '@mui/icons-material';
-import {
-  Button,
-  ButtonGroup,
-  Menu,
-  MenuItem,
-  Snackbar,
-  Tooltip,
-} from '@mui/material';
-import React from 'react';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { Button, ButtonGroup, Menu, MenuItem, Tooltip } from '@mui/material';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ActionCreators } from 'redux-undo';
 import { statKeeperActions } from '../../redux/StatsKeeper';
-
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref,
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import ActionSnackbar from './ActionSnackbar';
 
 const ActionCentreOptions = () => {
   const dispatch = useDispatch();
-
-  // Snackbars
-  const [undoSnackbarOpen, setUndoSnackbarOpen] = React.useState(false);
-  const [redoSnackbarOpen, setRedoSnackbarOpen] = React.useState(false);
+  const [undoSnackbarOpen, setUndoSnackbarOpen] = useState<boolean>(false);
+  const [redoSnackbarOpen, setRedoSnackbarOpen] = useState<boolean>(false);
+  const [clearSnackbarOpen, setClearSnackbarOpen] = useState<boolean>(false);
 
   const handleUndoClick = () => {
     dispatch(ActionCreators.undo());
@@ -35,26 +20,6 @@ const ActionCentreOptions = () => {
   const handleRedoClick = () => {
     dispatch(ActionCreators.redo());
     setRedoSnackbarOpen(true);
-  };
-
-  const handleUndoSnackbarClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string,
-  ) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setUndoSnackbarOpen(false);
-  };
-
-  const handleRedoSnackbarClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string,
-  ) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setRedoSnackbarOpen(false);
   };
 
   // Options Menu
@@ -69,6 +34,7 @@ const ActionCentreOptions = () => {
   const handleClearClick = () => {
     dispatch(statKeeperActions.clearState());
     handleMenuClose();
+    setClearSnackbarOpen(true);
   };
 
   return (
@@ -78,37 +44,11 @@ const ActionCentreOptions = () => {
           <Undo />
         </Button>
       </Tooltip>
-      <Snackbar
-        open={undoSnackbarOpen}
-        autoHideDuration={3000}
-        onClose={handleUndoSnackbarClose}
-      >
-        <Alert
-          onClose={handleUndoSnackbarClose}
-          severity="info"
-          sx={{ width: '100%' }}
-        >
-          Undo successful
-        </Alert>
-      </Snackbar>
       <Tooltip title="Redo">
         <Button onClick={handleRedoClick}>
           <Redo />
         </Button>
       </Tooltip>
-      <Snackbar
-        open={redoSnackbarOpen}
-        autoHideDuration={3000}
-        onClose={handleRedoSnackbarClose}
-      >
-        <Alert
-          onClose={handleRedoSnackbarClose}
-          severity="info"
-          sx={{ width: '100%' }}
-        >
-          Redo successful
-        </Alert>
-      </Snackbar>
       <Button
         id="basic-button"
         aria-controls={menuOpen ? 'basic-menu' : undefined}
@@ -129,6 +69,24 @@ const ActionCentreOptions = () => {
       >
         <MenuItem onClick={handleClearClick}>Clear</MenuItem>
       </Menu>
+      <ActionSnackbar
+        message="Undo successful"
+        open={undoSnackbarOpen}
+        setOpen={setUndoSnackbarOpen}
+        severity="info"
+      />
+      <ActionSnackbar
+        message="Redo successful"
+        open={redoSnackbarOpen}
+        setOpen={setRedoSnackbarOpen}
+        severity="info"
+      />
+      <ActionSnackbar
+        message="Clear successful"
+        open={clearSnackbarOpen}
+        setOpen={setClearSnackbarOpen}
+        severity="info"
+      />
     </ButtonGroup>
   );
 };
