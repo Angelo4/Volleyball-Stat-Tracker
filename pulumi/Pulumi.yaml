@@ -3,36 +3,56 @@ runtime: yaml
 description: All AWS resources for VolleyLog app.
 
 resources:
-  volleylog-dynamodb:
-    type: aws:dynamodb:Table
+  volleylog-s3:
+    type: aws:s3:Bucket
     properties:
-      attributes:
-        - name: UserId
-          type: S
-        - name: GameTitle
-          type: S
-        - name: TopScore
-          type: N
-      billingMode: PROVISIONED
-      globalSecondaryIndexes:
-        - hashKey: GameTitle
-          name: GameTitleIndex
-          nonKeyAttributes:
-            - UserId
-          projectionType: INCLUDE
-          rangeKey: TopScore
-          readCapacity: 10
-          writeCapacity: 10
-      hashKey: UserId
-      rangeKey: GameTitle
-      readCapacity: 20
-      tags:
-        Environment: production
-        Name: dynamodb-table-1
-      ttl:
-        attributeName: TimeToExist
-        enabled: false
-      writeCapacity: 20
+      bucket: volleylog-s3-bucket
+      website:
+        indexDocument: index.html
+      policy: '{
+        "Version": "2012-10-17",
+        "Statement": [
+        {
+        "Sid": "PublicReadGetObject",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::volleylog-s3-bucket/*"
+        }
+        ]
+        }'
+
+  # volleylog-dynamodb:
+  #   type: aws:dynamodb:Table
+  #   properties:
+  #     attributes:
+  #       - name: UserId
+  #         type: S
+  #       - name: GameTitle
+  #         type: S
+  #       - name: TopScore
+  #         type: N
+  #     billingMode: PROVISIONED
+  #     globalSecondaryIndexes:
+  #       - hashKey: GameTitle
+  #         name: GameTitleIndex
+  #         nonKeyAttributes:
+  #           - UserId
+  #         projectionType: INCLUDE
+  #         rangeKey: TopScore
+  #         readCapacity: 10
+  #         writeCapacity: 10
+  #     hashKey: UserId
+  #     rangeKey: GameTitle
+  #     readCapacity: 20
+  #     tags:
+  #       Environment: production
+  #       Name: dynamodb-table-1
+  #     ttl:
+  #       attributeName: TimeToExist
+  #       enabled: false
+  #     writeCapacity: 20
 
 outputs:
-  dynamodbName: ${volleylog-dynamodb.id}
+  s3Name: ${volleylog-s3.id}
+  # dynamodbName: ${volleylog-dynamodb.id}
