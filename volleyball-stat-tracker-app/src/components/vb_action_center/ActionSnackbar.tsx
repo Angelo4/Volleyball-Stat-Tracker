@@ -1,7 +1,6 @@
 import { AlertProps, Snackbar } from '@mui/material';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import MuiAlert, { AlertColor } from '@mui/material/Alert';
-import { AlignVerticalBottomRounded } from '@mui/icons-material';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,

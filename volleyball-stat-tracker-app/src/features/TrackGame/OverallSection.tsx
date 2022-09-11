@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import OverallRadarChart from '../../components/vb_stat_display/OverallRadarChart';
+// import OverallRadarChart from '../../components/vb_stat_display/OverallRadarChart';
 import OverallTable from '../../components/vb_stat_display/OverallTable';
 import StatsStackGraph from '../../components/vb_stat_display/StatsStackGraph';
 
