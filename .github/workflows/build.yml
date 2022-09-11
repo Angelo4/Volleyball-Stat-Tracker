@@ -22,6 +22,8 @@ jobs:
           npm run build
           npm test
 
+      - run: ls
+
       - name: Archive build folder
         uses: actions/upload-artifact@v3
         with:
