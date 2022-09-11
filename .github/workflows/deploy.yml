@@ -15,5 +15,9 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      - name: Display downloaded files
-        run: ls
+      - uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY}}
+          aws_bucket: ${{ secrets.VOLLEYLOG_S3_BUCKET }}
+          source_dir: ./
