@@ -11,6 +11,9 @@ jobs:
         working-directory: volleyball-stat-tracker-app
 
     steps:
-      - uses: actions/checkout@v3
-      - run: ls
-      - run: echo deployingTest
+      - uses: actions/download-artifact@v3
+        with:
+          name: react-build-folder
+
+      - name: Display structure of downloaded files
+        run: ls -R
