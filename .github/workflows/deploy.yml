@@ -2,6 +2,16 @@ name: Deployment
 
 on:
   workflow_call:
+    secrets:
+      AWS_ACCESS_KEY:
+        description: "AWS Access Key"
+        required: true
+      AWS_SECRET_KEY:
+        description: "AWS Access Secret Key"
+        required: true
+      VOLLEYLOG_S3_BUCKET:
+        description: "Volleylog S3 Bucket name"
+        required: true
 
 jobs:
   deploy:
