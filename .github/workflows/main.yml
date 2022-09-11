@@ -10,7 +10,9 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml@main
+    uses: Angelo4/Volleyball-Stat-Tracker/.github/workflows/build.yml@main
+    with:
+      nodeVersion: 16
 
   deploy_test:
-    uses: ./.github/workflows/deploy.yml@main
+    uses: Angelo4/Volleyball-Stat-Tracker/.github/workflows/deploy.yml@main
