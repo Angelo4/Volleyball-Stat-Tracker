@@ -18,17 +18,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: mkdir build
+      - name: Create build folder
+        run: mkdir build
 
-      - uses: actions/download-artifact@v3
+      - name: Download react build artifacts to build folder
+        uses: actions/download-artifact@v3
         with:
           name: react-build-folder
           path: build
-
-      - name: Display structure of downloaded files
-        run: ls -R
-
-      - run: echo ${{secrets.AWS_ACCESS_KEY}}
 
       - name: Upload react build artifact to S3 Bucket
         uses: shallwefootball/s3-upload-action@master
@@ -37,3 +34,4 @@ jobs:
           aws_secret_access_key: ${{secrets.AWS_SECRET_KEY}}
           aws_bucket: ${{secrets.VOLLEYLOG_S3_BUCKET}}
           source_dir: "build"
+          destination_dir: ""
