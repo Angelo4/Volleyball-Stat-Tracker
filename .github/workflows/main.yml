@@ -10,9 +10,11 @@ on:
 
 jobs:
   build:
+    name: Build Volleylog web app
     uses: ./.github/workflows/build.yml
 
-  deploy_test:
+  deploy:
+    name: Deploy Volleylog web app
     needs: build
     uses: ./.github/workflows/deploy.yml
     secrets:
