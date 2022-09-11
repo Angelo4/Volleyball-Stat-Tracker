@@ -6,9 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: volleyball-stat-tracker-app
 
     steps:
       - uses: actions/download-artifact@v3
@@ -17,3 +14,6 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R
+
+      - name: Display downloaded files
+        run: ls
