@@ -15,7 +15,8 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      - uses: shallwefootball/s3-upload-action@master
+      - name: Upload react build artifact to S3 Bucket
+        uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY}}
