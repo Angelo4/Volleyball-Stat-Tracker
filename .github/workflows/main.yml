@@ -32,7 +32,7 @@ jobs:
           node-version: 16
 
       - name: npm ci
-        run: npm install
+        run: npm ci
   deploy:
     runs-on: ubuntu-latest
     steps:
