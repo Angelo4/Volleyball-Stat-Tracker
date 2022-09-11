@@ -16,11 +16,14 @@ jobs:
         with:
           node-version: 16
 
-      - name: npm ci
-        run: npm ci
+      - name: npm install, build and test
+        run: |
+          npm ci
+          npm run build
+          npm test
 
-      - name: Build app
-        run: npm run build
-
-      - name: Run tests
-        run: npm test
+      - name: Archive build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: react-build-folder
+          path: build/*
