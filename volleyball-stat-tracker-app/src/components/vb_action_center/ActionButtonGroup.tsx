@@ -59,7 +59,7 @@ const ActionButtonGroup = (props: ActionButtonGroupProps) => {
             </Button>
             {!!props.pointEnabled && (
               <Button color="success" onClick={onPointClick} fullWidth>
-                Point
+                Pointtt
               </Button>
             )}
           </ButtonGroup>
