@@ -23,36 +23,64 @@ resources:
         ]
         }'
 
-  # volleylog-dynamodb:
-  #   type: aws:dynamodb:Table
-  #   properties:
-  #     attributes:
-  #       - name: UserId
-  #         type: S
-  #       - name: GameTitle
-  #         type: S
-  #       - name: TopScore
-  #         type: N
-  #     billingMode: PROVISIONED
-  #     globalSecondaryIndexes:
-  #       - hashKey: GameTitle
-  #         name: GameTitleIndex
-  #         nonKeyAttributes:
-  #           - UserId
-  #         projectionType: INCLUDE
-  #         rangeKey: TopScore
-  #         readCapacity: 10
-  #         writeCapacity: 10
-  #     hashKey: UserId
-  #     rangeKey: GameTitle
-  #     readCapacity: 20
-  #     tags:
-  #       Environment: production
-  #       Name: dynamodb-table-1
-  #     ttl:
-  #       attributeName: TimeToExist
-  #       enabled: false
-  #     writeCapacity: 20
+  distribution:
+    type: aws:cloudfront:Distribution
+    properties:
+      aliases:
+        - volleylog.in
+        - www.volleylog.in
+      defaultCacheBehavior:
+        allowedMethods:
+          - GET
+          - HEAD
+        cachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        cachedMethods:
+          - GET
+          - HEAD
+        compress: true
+        targetOriginId: volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+        viewerProtocolPolicy: allow-all
+      enabled: true
+      isIpv6Enabled: true
+      origins:
+        - customOriginConfig:
+            httpPort: 80
+            httpsPort: 443
+            originProtocolPolicy: http-only
+            originSslProtocols:
+              - TLSv1.2
+          domainName: volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+          originId: volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+      restrictions:
+        geoRestriction:
+          restrictionType: none
+      viewerCertificate:
+        acmCertificateArn: arn:aws:acm:us-east-1:546093459510:certificate/d2d5172f-717c-43b7-802f-1a181cd03067
+        minimumProtocolVersion: TLSv1.2_2021
+        sslSupportMethod: sni-only
+    options:
+      protect: true
+
+  route-53-dns-hosted-zone:
+    type: aws:route53:HostedZoneDnsSec
+    properties:
+      hostedZoneId: Z006015217XFPGTXIAIJX
+      signingStatus: NOT_SIGNING
+    options:
+      protect: true
+
+  route-53-dns-record:
+    type: aws:route53:Record
+    properties:
+      aliases:
+        - evaluateTargetHealth: false
+          name: d3uylcxj5m80bd.cloudfront.net
+          zoneId: Z2FDTNDATAQYW2
+      name: volleylog.in
+      type: A
+      zoneId: Z006015217XFPGTXIAIJX
+    options:
+      protect: true
 
 outputs:
   s3Name: ${volleylog-s3.id}
