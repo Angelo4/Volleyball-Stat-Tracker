@@ -9,6 +9,7 @@ resources:
       bucket: volleylog-s3-bucket
       website:
         indexDocument: index.html
+        errorDocument: index.html
       policy: '{
         "Version": "2012-10-17",
         "Statement": [
