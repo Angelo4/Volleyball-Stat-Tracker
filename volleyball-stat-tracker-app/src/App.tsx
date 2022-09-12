@@ -4,6 +4,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './utils/Theme';
 import { Container } from '@mui/material';
+import TrackTeam from './features/TrackTeam/TrackTeam';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -11,7 +13,10 @@ function App() {
       <CssBaseline />
       <ResponsiveAppBar />
       <Container maxWidth="xl" sx={{ paddingTop: 2 }}>
-        <TrackGame />
+        <Routes>
+          <Route path="/" element={<TrackGame />} />
+          <Route path="/Team" element={<TrackTeam />} />
+        </Routes>
       </Container>
     </ThemeProvider>
   );
