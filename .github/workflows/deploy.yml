@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
         required: true
+        type: string
     secrets:
       AWS_ACCESS_KEY:
         description: "AWS Access Key"
