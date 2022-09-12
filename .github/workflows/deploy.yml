@@ -5,8 +5,6 @@ on:
     inputs:
       environment:
         required: true
-      url:
-        required: true
     secrets:
       AWS_ACCESS_KEY:
         description: "AWS Access Key"
@@ -26,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{inputs.environment}}
-      url: ${{inputs.url}}
     steps:
       - name: Create build folder
         run: mkdir build
