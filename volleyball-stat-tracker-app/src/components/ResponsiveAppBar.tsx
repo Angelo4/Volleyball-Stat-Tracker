@@ -13,8 +13,12 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-// const pages = ['Track', 'Games', 'Overview'];
-const pages = ['Track'];
+type menuButtons = { title: string; path: string };
+
+const pages: menuButtons[] = [
+  { title: 'Personal', path: '/' },
+  { title: 'Team', path: '/Team' },
+];
 // const settings = ['Profile', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -97,8 +101,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -130,11 +134,12 @@ const ResponsiveAppBar = () => {
           >
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                href={page.path}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>
