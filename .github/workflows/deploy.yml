@@ -12,6 +12,9 @@ on:
       VOLLEYLOG_S3_BUCKET:
         description: "Volleylog S3 Bucket name"
         required: true
+      VOLLEYLOG_CLOUDFRONT_ID:
+        description: "Volleylog Cloudfront distribution ID"
+        required: true
 
 jobs:
   deploy:
@@ -35,3 +38,12 @@ jobs:
           aws_bucket: ${{secrets.VOLLEYLOG_S3_BUCKET}}
           source_dir: "build"
           destination_dir: ""
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{secrets.VOLLEYLOG_CLOUDFRONT_ID}}
+          PATHS: "/index.html"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_KEY}}
