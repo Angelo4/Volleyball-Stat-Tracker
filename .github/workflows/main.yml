@@ -14,11 +14,12 @@ jobs:
     uses: ./.github/workflows/build.yml
 
   deploy:
-    name: Deploy Volleylog web app
+    name: PROD - Deploy Volleylog web app
     needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       environment: production
+      url: https://volleylog.in
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
       AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
