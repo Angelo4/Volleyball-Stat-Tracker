@@ -168,6 +168,13 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseUserMenu}
                 sx={{ justifyContent: 'center' }}
               >
+                <Typography>Volleyball Definitions</Typography>
+              </MenuItem>
+              <MenuItem
+                key={'about'}
+                onClick={handleCloseUserMenu}
+                sx={{ justifyContent: 'center' }}
+              >
                 <Typography>About</Typography>
               </MenuItem>
               <Divider />

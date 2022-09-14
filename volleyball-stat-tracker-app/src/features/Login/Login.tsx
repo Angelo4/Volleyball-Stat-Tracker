@@ -22,6 +22,7 @@ const Login = (props: Props) => {
         fontSize: '16px',
         border: 'none',
         borderRadius: '4px',
+        cursor: 'pointer',
       }}
     >
       <Box
