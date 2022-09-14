@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Login from '../features/Login/Login';
+import { Divider } from '@mui/material';
 
 type menuButtons = { title: string; path: string };
 
@@ -161,9 +163,17 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem key={'about'} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">About</Typography>
+              <MenuItem
+                key={'about'}
+                onClick={handleCloseUserMenu}
+                sx={{ justifyContent: 'center' }}
+              >
+                <Typography>About</Typography>
               </MenuItem>
+              <Divider />
+              <Box sx={{ paddingLeft: 4, paddingRight: 4 }}>
+                <Login />
+              </Box>
             </Menu>
           </Box>
         </Toolbar>
