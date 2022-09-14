@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import Login from '../Login/Login';
 
 type Props = {};
 
