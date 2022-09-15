@@ -4,9 +4,9 @@ import MuiAlert, { AlertColor } from '@mui/material/Alert';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
-  ref,
+  ref
 ) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
 
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
@@ -21,7 +21,7 @@ type Props = {
 const ActionSnackbar = (props: Props) => {
   const handleSnackbarClose = (
     event?: React.SyntheticEvent | Event,
-    reason?: string,
+    reason?: string
   ) => {
     if (reason === 'clickaway') {
       return;

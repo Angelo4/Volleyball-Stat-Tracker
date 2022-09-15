@@ -12,10 +12,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ResponsiveAppBar />
-      <Container maxWidth="xl" sx={{ paddingTop: 2 }}>
+      <Container maxWidth='xl' sx={{ paddingTop: 2 }}>
         <Routes>
-          <Route path="/" element={<TrackGame />} />
-          <Route path="/Team" element={<TrackTeam />} />
+          <Route path='/' element={<TrackGame />} />
+          <Route path='/Team' element={<TrackTeam />} />
         </Routes>
       </Container>
     </ThemeProvider>

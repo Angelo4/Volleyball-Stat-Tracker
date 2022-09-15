@@ -39,27 +39,27 @@ const ActionCentreOptions = () => {
 
   return (
     <ButtonGroup>
-      <Tooltip title="Undo">
+      <Tooltip title='Undo'>
         <Button onClick={handleUndoClick}>
           <Undo />
         </Button>
       </Tooltip>
-      <Tooltip title="Redo">
+      <Tooltip title='Redo'>
         <Button onClick={handleRedoClick}>
           <Redo />
         </Button>
       </Tooltip>
       <Button
-        id="basic-button"
+        id='basic-button'
         aria-controls={menuOpen ? 'basic-menu' : undefined}
-        aria-haspopup="true"
+        aria-haspopup='true'
         aria-expanded={menuOpen ? 'true' : undefined}
         onClick={handleClick}
       >
         <MoreHoriz />
       </Button>
       <Menu
-        id="basic-menu"
+        id='basic-menu'
         anchorEl={anchorEl}
         open={menuOpen}
         onClose={handleMenuClose}
@@ -70,22 +70,22 @@ const ActionCentreOptions = () => {
         <MenuItem onClick={handleClearClick}>Clear</MenuItem>
       </Menu>
       <ActionSnackbar
-        message="Undo successful"
+        message='Undo successful'
         open={undoSnackbarOpen}
         setOpen={setUndoSnackbarOpen}
-        severity="info"
+        severity='info'
       />
       <ActionSnackbar
-        message="Redo successful"
+        message='Redo successful'
         open={redoSnackbarOpen}
         setOpen={setRedoSnackbarOpen}
-        severity="info"
+        severity='info'
       />
       <ActionSnackbar
-        message="Clear successful"
+        message='Clear successful'
         open={clearSnackbarOpen}
         setOpen={setClearSnackbarOpen}
-        severity="info"
+        severity='info'
       />
     </ButtonGroup>
   );

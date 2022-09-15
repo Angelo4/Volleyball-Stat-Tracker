@@ -17,14 +17,14 @@ const DataBadge = (props: Props) => {
     >
       <Stack>
         <Typography
-          variant="h6"
+          variant='h6'
           color={theme.palette.text.secondary}
           gutterBottom
-          align="center"
+          align='center'
         >
           {props.title}
         </Typography>
-        <Typography variant="h3" align="center">
+        <Typography variant='h3' align='center'>
           {props.data}
         </Typography>
       </Stack>

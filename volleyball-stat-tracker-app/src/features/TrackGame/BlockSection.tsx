@@ -9,19 +9,19 @@ const BlockSection = (props: VbActionResult) => {
   return (
     <Grid container spacing={2} sx={{ paddingTop: 2 }}>
       <Grid item>
-        <DataBadge title="Points" data={props.point || 0} />
+        <DataBadge title='Points' data={props.point || 0} />
       </Grid>
       <Grid item>
-        <DataBadge title="Errors" data={props.error} />
+        <DataBadge title='Errors' data={props.error} />
       </Grid>
       <Grid item>
-        <DataBadge title="Touches" data={props.success} />
+        <DataBadge title='Touches' data={props.success} />
       </Grid>
       <Grid item>
-        <DataBadge title="Total" data={vbActionTotal(props)} />
+        <DataBadge title='Total' data={vbActionTotal(props)} />
       </Grid>
       <Grid item>
-        <DataBadge title="Efficiency" data={`${vbActionEfficiency(props)}%`} />
+        <DataBadge title='Efficiency' data={`${vbActionEfficiency(props)}%`} />
       </Grid>
     </Grid>
   );

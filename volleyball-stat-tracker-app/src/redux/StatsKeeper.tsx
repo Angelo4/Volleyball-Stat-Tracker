@@ -43,10 +43,10 @@ const initialState: VolleyBallStats = {
 
 // Attack actions
 const incrementAttackPoint = createAction<undefined>(
-  'attack/success/increment',
+  'attack/success/increment'
 );
 const incrementAttackSuccess = createAction<undefined>(
-  'attack/point/increment',
+  'attack/point/increment'
 );
 const incrementAttackError = createAction<undefined>('attack/error/increment');
 
@@ -62,10 +62,10 @@ const incrementServeError = createAction<undefined>('serve/error/increment');
 
 // Reception actions
 const incrementReceptionSuccess = createAction<undefined>(
-  'reception/point/increment',
+  'reception/point/increment'
 );
 const incrementReceptionError = createAction<undefined>(
-  'reception/error/increment',
+  'reception/error/increment'
 );
 
 // Dig actions

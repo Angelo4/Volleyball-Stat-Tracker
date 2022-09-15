@@ -50,20 +50,20 @@ export const OverallDefenseTable = (props: VolleyBallStats) => {
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell align="center">Success</TableCell>
-            <TableCell align="center">Error</TableCell>
-            <TableCell align="center">Total</TableCell>
-            <TableCell align="center">Efficiency</TableCell>
+            <TableCell align='center'>Success</TableCell>
+            <TableCell align='center'>Error</TableCell>
+            <TableCell align='center'>Total</TableCell>
+            <TableCell align='center'>Efficiency</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {defenseRows.map((row) => (
             <TableRow hover>
               <TableCell>{row.name}</TableCell>
-              <TableCell align="center">{row.success}</TableCell>
-              <TableCell align="center">{row.error}</TableCell>
-              <TableCell align="center">{row.total}</TableCell>
-              <TableCell align="center">{`${row.efficiency}%`}</TableCell>
+              <TableCell align='center'>{row.success}</TableCell>
+              <TableCell align='center'>{row.error}</TableCell>
+              <TableCell align='center'>{row.total}</TableCell>
+              <TableCell align='center'>{`${row.efficiency}%`}</TableCell>
             </TableRow>
           ))}
         </TableBody>

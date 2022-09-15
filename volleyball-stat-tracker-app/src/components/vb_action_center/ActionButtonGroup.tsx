@@ -45,20 +45,20 @@ const ActionButtonGroup = (props: ActionButtonGroupProps) => {
         }}
       >
         <Grid item xs={12}>
-          <Typography variant="h5" align="center">
+          <Typography variant='h5' align='center'>
             {props.title}
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <ButtonGroup variant="outlined" fullWidth>
-            <Button color="error" onClick={onErrorClick} fullWidth>
+          <ButtonGroup variant='outlined' fullWidth>
+            <Button color='error' onClick={onErrorClick} fullWidth>
               Error
             </Button>
             <Button onClick={onSuccessClick} fullWidth>
               Success
             </Button>
             {!!props.pointEnabled && (
-              <Button color="success" onClick={onPointClick} fullWidth>
+              <Button color='success' onClick={onPointClick} fullWidth>
                 Point
               </Button>
             )}
@@ -66,20 +66,20 @@ const ActionButtonGroup = (props: ActionButtonGroupProps) => {
         </Grid>
       </Grid>
       <ActionSnackbar
-        message="Error added"
-        severity="error"
+        message='Error added'
+        severity='error'
         open={errorSnackbarOpen}
         setOpen={setErrorSnackbarOpen}
       />
       <ActionSnackbar
-        message="Attempt successful"
-        severity="info"
+        message='Attempt successful'
+        severity='info'
         open={successSnackbarOpen}
         setOpen={setSuccessSnackbarOpen}
       />
       <ActionSnackbar
-        message="Point scored!"
-        severity="success"
+        message='Point scored!'
+        severity='success'
         open={pointSnackbarOpen}
         setOpen={setPointSnackbarOpen}
       />

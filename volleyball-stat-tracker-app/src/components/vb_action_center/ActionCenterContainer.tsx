@@ -15,7 +15,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Attack"
+            title='Attack'
             pointEnabled
             handlePointClick={() =>
               dispatch(statKeeperActions.incrementAttackPoint())
@@ -30,7 +30,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Block"
+            title='Block'
             pointEnabled
             handlePointClick={() =>
               dispatch(statKeeperActions.incrementBlockPoint())
@@ -45,7 +45,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Serve"
+            title='Serve'
             pointEnabled
             handlePointClick={() =>
               dispatch(statKeeperActions.incrementServePoint())
@@ -60,7 +60,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Set"
+            title='Set'
             pointEnabled
             handlePointClick={() =>
               dispatch(statKeeperActions.incrementSetPoint())
@@ -75,7 +75,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Reception"
+            title='Reception'
             handleSuccessClick={() => {
               dispatch(statKeeperActions.incrementReceptionSuccess());
             }}
@@ -86,7 +86,7 @@ const ActionCenterContainer = () => {
         </Grid>
         <Grid item xs={12} sx={{ justifyContent: 'right', display: 'flex' }}>
           <ActionButtonGroup
-            title="Dig"
+            title='Dig'
             handleSuccessClick={() => {
               dispatch(statKeeperActions.incrementDigSuccess());
             }}

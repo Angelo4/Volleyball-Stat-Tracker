@@ -4,7 +4,7 @@ import ActionButtonGroup from '../ActionButtonGroup';
 describe('<ActionButtonGroup/>', () => {
   describe('with points enabled', () => {
     beforeEach(() => {
-      render(<ActionButtonGroup title="Test Title" pointEnabled />);
+      render(<ActionButtonGroup title='Test Title' pointEnabled />);
     });
 
     test('should have a title', () => {
@@ -24,7 +24,7 @@ describe('<ActionButtonGroup/>', () => {
 
   describe('without points enabled', () => {
     beforeEach(() => {
-      render(<ActionButtonGroup title="Test Title" />);
+      render(<ActionButtonGroup title='Test Title' />);
     });
 
     test('should have a title', () => {

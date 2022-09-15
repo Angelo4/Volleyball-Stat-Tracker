@@ -64,15 +64,15 @@ class OverallRadarChart extends React.Component {
                 axis: { stroke: 'none' },
                 grid: { stroke: 'grey', strokeWidth: 0.25, opacity: 0.5 },
               }}
-              tickLabelComponent={<VictoryLabel labelPlacement="vertical" />}
-              labelPlacement="perpendicular"
+              tickLabelComponent={<VictoryLabel labelPlacement='vertical' />}
+              labelPlacement='perpendicular'
               label={key}
-              domain={[0,8]}
+              domain={[0, 8]}
             />
           );
         })}
         <VictoryPolarAxis
-          labelPlacement="parallel"
+          labelPlacement='parallel'
           tickFormat={() => ''}
           style={{
             axis: { stroke: 'none' },
@@ -84,4 +84,4 @@ class OverallRadarChart extends React.Component {
   }
 }
 
-export default OverallRadarChart
+export default OverallRadarChart;

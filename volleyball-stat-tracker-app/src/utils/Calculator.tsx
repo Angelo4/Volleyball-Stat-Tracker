@@ -8,7 +8,7 @@ export const vbActionTotal = (stats: VbActionResult): number => {
 
 export const vbActionEfficiency = (
   stats: VbActionResult,
-  isDefense: boolean = false,
+  isDefense: boolean = false
 ): string => {
   let point = stats.point || 0;
   const total: number = vbActionTotal(stats);
