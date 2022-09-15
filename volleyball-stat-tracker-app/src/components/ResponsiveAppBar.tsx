@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Login from '../features/Login/Login';
 import { Divider } from '@mui/material';
+import { AppState } from '../redux/Store';
 
 type menuButtons = { title: string; path: string };
 
@@ -22,7 +23,14 @@ const pages: menuButtons[] = [
   { title: 'Team', path: '/Team' },
 ];
 
-const ResponsiveAppBar = () => {
+type Props = {
+  profileId?: number;
+  name?: string;
+  email?: string;
+  isLoggedIn: boolean;
+};
+
+const ResponsiveAppBar = (props: Props) => {
   const [anchorElNav, setAnchorElNav] =
     React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] =
@@ -179,7 +187,11 @@ const ResponsiveAppBar = () => {
               </MenuItem>
               <Divider />
               <Box sx={{ paddingLeft: 4, paddingRight: 4 }}>
-                <Login />
+                {props.isLoggedIn ? (
+                  <Typography>`Welcome ${props.name}`</Typography>
+                ) : (
+                  <Login />
+                )}
               </Box>
             </Menu>
           </Box>
@@ -188,4 +200,14 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
+
+export const mapStateToProps = (state: AppState) => {
+  return {
+    profileId: state.profile.id,
+    name: state.profile.name,
+    email: state.profile.email,
+    isLoggedIn: state.profile.isLoggedIn,
+  };
+};
+
 export default ResponsiveAppBar;

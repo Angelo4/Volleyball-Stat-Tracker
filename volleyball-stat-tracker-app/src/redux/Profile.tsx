@@ -1,9 +1,9 @@
 import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Profile {
-  id: number;
-  name: string;
-  email: string;
+  id?: number;
+  name?: string;
+  email?: string;
   pictureUrl?: string;
   isLoggedIn: boolean;
 }
@@ -14,7 +14,7 @@ export type FbProfile = {
   email: string;
 };
 
-const initialState: Partial<Profile> = {
+const initialState: Profile = {
   id: undefined,
   name: undefined,
   email: undefined,
