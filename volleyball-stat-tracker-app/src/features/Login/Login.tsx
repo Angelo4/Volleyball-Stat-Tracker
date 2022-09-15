@@ -1,9 +1,25 @@
 import FacebookLogin from '@greatsumini/react-facebook-login';
 import { Box } from '@mui/material';
+import { FbProfile, profileActions } from '../../redux/Profile';
+import { useDispatch } from 'react-redux';
 
 type Props = {};
 
 const Login = (props: Props) => {
+  const dispatch = useDispatch();
+
+  const onFbProfileSuccess = (response: any) => {
+    console.log('New Profile response', response);
+
+    const fbResponse: FbProfile = {
+      id: response.id,
+      name: response.name,
+      email: response.email,
+    };
+
+    dispatch(profileActions.login(fbResponse));
+  };
+
   return (
     <FacebookLogin
       appId='1467702463678075'
@@ -13,9 +29,7 @@ const Login = (props: Props) => {
       onFail={(error) => {
         console.log('Login Failed!', error);
       }}
-      onProfileSuccess={(response) => {
-        console.log('Get Profile Success!', response);
-      }}
+      onProfileSuccess={onFbProfileSuccess}
       style={{
         backgroundColor: '#4267b2',
         color: '#fff',
