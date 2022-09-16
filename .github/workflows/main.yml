@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: test
-      url: http://test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com/
+      url: "http://test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com/"
       hasCloudfront: false
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
