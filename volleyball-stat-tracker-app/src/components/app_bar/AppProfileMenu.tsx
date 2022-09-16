@@ -8,6 +8,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Divider } from '@mui/material';
 import Login from '../../features/Login/Login';
+import {
+  FacebookLoginClient,
+  LoginResponse,
+  LoginStatus,
+} from '@greatsumini/react-facebook-login';
+import { useEffect } from 'react';
 
 type Props = {
   anchorElUser: HTMLElement | null;
@@ -18,6 +24,19 @@ type Props = {
 };
 
 const AppProfileMenu = (props: Props) => {
+  useEffect(() => {
+    FacebookLoginClient.getLoginStatus((res: LoginResponse) => {
+      if (res.status === LoginStatus.Connected) {
+        FacebookLoginClient.getProfile(
+          (res) => {
+            console.log('Get profile response', res);
+          },
+          { fields: 'name' }
+        );
+      }
+    });
+  });
+
   return (
     <Box
       sx={{
