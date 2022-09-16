@@ -1,0 +1,26 @@
+name: Testing CI
+
+on:
+  push:
+    branches: ["test"]
+  pull_request:
+    branches: ["test"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Volleylog web app
+    uses: ./.github/workflows/build.yml
+
+  deploy-test:
+    name: TEST - Deploy Volleylog web app
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: test
+      hasCloudfront: false
+    secrets:
+      AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
+      AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
+      VOLLEYLOG_S3_BUCKET: ${{secrets.VOLLEYLOG_S3_BUCKET}}

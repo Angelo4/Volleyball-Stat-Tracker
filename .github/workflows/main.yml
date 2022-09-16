@@ -1,4 +1,4 @@
-name: CI
+name: Production CI
 
 on:
   push:
@@ -13,13 +13,12 @@ jobs:
     name: Build Volleylog web app
     uses: ./.github/workflows/build.yml
 
-  deploy-test:
-    name: TEST - Deploy Volleylog web app
+  deploy-preprod:
+    name: PREPROD - Deploy Volleylog web app
     needs: build
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: test
-      url: "http://test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com/"
+      environment: preprod
       hasCloudfront: false
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
@@ -28,7 +27,7 @@ jobs:
 
   deploy-prod:
     name: PROD - Deploy Volleylog web app
-    needs: deploy-test
+    needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       environment: production
