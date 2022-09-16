@@ -7,7 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Divider } from '@mui/material';
-import Login from '../../features/Login/Login';
+import Login from '../../features/login/Login';
 
 type Props = {
   anchorElUser: HTMLElement | null;

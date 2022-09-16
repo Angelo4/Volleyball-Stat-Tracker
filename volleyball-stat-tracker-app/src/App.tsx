@@ -1,11 +1,8 @@
-import ResponsiveAppBar from './components/app_bar/ResponsiveAppBar';
-import TrackGame from './features/TrackGame/TrackGame';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import theme from './utils/Theme';
-import { Container } from '@mui/material';
-import TrackTeam from './features/TrackTeam/TrackTeam';
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
+import { ResponsiveAppBar } from './components/app_bar';
+import { TrackGame, TrackTeam } from './features';
 
 function App() {
   return (
