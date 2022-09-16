@@ -2,8 +2,7 @@ import theme from './utils/Theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import { ResponsiveAppBar } from './components/app_bar';
-import TrackGame from './features/track_game/TrackGame';
-import TrackTeam from './features/track_team/TrackTeam';
+import { TrackGame, TrackTeam } from './features';
 
 function App() {
   return (
