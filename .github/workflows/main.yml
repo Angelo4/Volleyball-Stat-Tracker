@@ -13,13 +13,27 @@ jobs:
     name: Build Volleylog web app
     uses: ./.github/workflows/build.yml
 
-  deploy:
+  deploy-test:
+    name: TEST - Deploy Volleylog web app
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: test
+      url: http://test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com/
+      hasCloudfront: false
+    secrets:
+      AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
+      AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
+      VOLLEYLOG_S3_BUCKET: ${{secrets.VOLLEYLOG_S3_BUCKET}}
+
+  deploy-prod:
     name: PROD - Deploy Volleylog web app
     needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       environment: production
       url: https://volleylog.in
+      hasCloudfront: true
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
       AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}

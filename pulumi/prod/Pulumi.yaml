@@ -6,22 +6,15 @@ resources:
   volleylog-s3:
     type: aws:s3:Bucket
     properties:
+      acl: private
       bucket: volleylog-s3-bucket
+      forceDestroy: false
+      policy: '{ "Version": "2012-10-17", "Statement": [ { "Sid": "PublicReadGetObject", "Effect": "Allow", "Principal": "*", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::volleylog-s3-bucket/*" } ] }'
       website:
-        indexDocument: index.html
         errorDocument: index.html
-      policy: '{
-        "Version": "2012-10-17",
-        "Statement": [
-        {
-        "Sid": "PublicReadGetObject",
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::volleylog-s3-bucket/*"
-        }
-        ]
-        }'
+        indexDocument: index.html
+    options:
+      protect: true
 
   distribution:
     type: aws:cloudfront:Distribution
@@ -84,4 +77,3 @@ resources:
 
 outputs:
   s3Name: ${volleylog-s3.id}
-  # dynamodbName: ${volleylog-dynamodb.id}

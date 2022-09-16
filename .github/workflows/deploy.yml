@@ -9,6 +9,9 @@ on:
       url:
         required: true
         type: string
+      hasCloudfront:
+        required: true
+        type: boolean
     secrets:
       AWS_ACCESS_KEY:
         description: "AWS Access Key"
@@ -21,7 +24,7 @@ on:
         required: true
       VOLLEYLOG_CLOUDFRONT_ID:
         description: "Volleylog Cloudfront distribution ID"
-        required: true
+        required: false
 
 jobs:
   deploy:
