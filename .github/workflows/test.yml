@@ -20,8 +20,9 @@ jobs:
     with:
       environment: test
       url: https://test.volleylog.in
-      hasCloudfront: false
+      hasCloudfront: true
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
       AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
       VOLLEYLOG_S3_BUCKET: ${{secrets.VOLLEYLOG_S3_BUCKET}}
+      VOLLEYLOG_CLOUDFRONT_ID: ${{secrets.VOLLEYLOG_CLOUDFRONT_ID}}
