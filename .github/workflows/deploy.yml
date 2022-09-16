@@ -53,6 +53,7 @@ jobs:
 
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
+        if: ${{inputs.hasCloudfront}}
         env:
           DISTRIBUTION: ${{secrets.VOLLEYLOG_CLOUDFRONT_ID}}
           PATHS: "/*"

@@ -28,7 +28,7 @@ jobs:
 
   deploy-prod:
     name: PROD - Deploy Volleylog web app
-    needs: build
+    needs: deploy-test
     uses: ./.github/workflows/deploy.yml
     with:
       environment: production
