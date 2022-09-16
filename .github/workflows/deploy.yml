@@ -7,7 +7,7 @@ on:
         required: true
         type: string
       url:
-        required: true
+        required: false
         type: string
       hasCloudfront:
         required: true
