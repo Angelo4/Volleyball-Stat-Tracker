@@ -1,3 +1,7 @@
+import {
+  FacebookLoginClient,
+  LoginStatus,
+} from '@greatsumini/react-facebook-login';
 import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Profile {
@@ -13,6 +17,16 @@ export type FbProfile = {
   fullName: string;
   email: string;
 };
+
+const isFbLoggedIn = () => {
+  let isLoggedIn = false;
+  FacebookLoginClient.getLoginStatus((res) => {
+    isLoggedIn = res.status === LoginStatus.Connected;
+  });
+  return isLoggedIn;
+};
+
+console.log(isFbLoggedIn());
 
 const initialState: Profile = {
   id: undefined,
