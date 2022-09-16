@@ -6,8 +6,38 @@ import theme from './utils/Theme';
 import { Container } from '@mui/material';
 import TrackTeam from './features/TrackTeam/TrackTeam';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import {
+  FacebookLoginClient,
+  LoginResponse,
+  LoginStatus,
+} from '@greatsumini/react-facebook-login';
+import { FbProfile, profileActions } from './redux/Profile';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    FacebookLoginClient.getLoginStatus((res: LoginResponse) => {
+      if (res.status === LoginStatus.Connected) {
+        FacebookLoginClient.getProfile(
+          (res: any) => {
+            console.log('Get profile response', res);
+            const fbResponse: FbProfile = {
+              id: res.id,
+              fullName: res.name,
+              email: res.email,
+            };
+
+            dispatch(profileActions.login(fbResponse));
+          },
+          { fields: 'name,email' }
+        );
+      }
+    });
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

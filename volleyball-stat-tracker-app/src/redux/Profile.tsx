@@ -2,7 +2,7 @@ import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Profile {
   id?: number;
-  name?: string;
+  fullName?: string;
   email?: string;
   pictureUrl?: string;
   isLoggedIn: boolean;
@@ -10,13 +10,13 @@ export interface Profile {
 
 export type FbProfile = {
   id: number;
-  name: string;
+  fullName: string;
   email: string;
 };
 
 const initialState: Profile = {
   id: undefined,
-  name: undefined,
+  fullName: undefined,
   email: undefined,
   pictureUrl: undefined,
   isLoggedIn: false,
@@ -31,7 +31,7 @@ export const profileReducer = createReducer(initialState, (builder) => {
     .addCase(login, (state, action: PayloadAction<FbProfile>) => {
       state.isLoggedIn = true;
       state.id = action.payload.id;
-      state.name = action.payload.name;
+      state.fullName = action.payload.fullName;
       state.email = action.payload.email;
     });
 });

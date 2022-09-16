@@ -9,9 +9,11 @@ const Login = (props: Props) => {
   const dispatch = useDispatch();
 
   const onFbProfileSuccess = (response: any) => {
+    console.log('response', response);
+
     const fbResponse: FbProfile = {
       id: response.id,
-      name: response.name,
+      fullName: response.name,
       email: response.email,
     };
 

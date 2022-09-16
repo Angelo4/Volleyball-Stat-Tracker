@@ -163,7 +163,7 @@ const ResponsiveAppBar = (props: Props) => {
 export const mapStateToProps = (state: AppState) => {
   return {
     profileId: state.profile.id,
-    name: state.profile.name,
+    name: state.profile.fullName,
     email: state.profile.email,
     isLoggedIn: state.profile.isLoggedIn,
   };
