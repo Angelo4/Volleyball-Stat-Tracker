@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
-import { ActionCenterContainer } from '../../components/vb_action_center';
 import SessionStatsContainer from './SessionStatsContainer';
+import ActionCenterContainer from '../../components/vb_action_center/ActionCenterContainer';
 
 const TrackGame = () => {
   return (
