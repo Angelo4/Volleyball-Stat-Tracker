@@ -7,15 +7,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Login from '../features/Login/Login';
-import { Divider } from '@mui/material';
-import { AppState } from '../redux/Store';
 import { connect } from 'react-redux';
+import { AppState } from '../../redux/Store';
+import AppProfileMenu from './AppProfileMenu';
 
 type menuButtons = { title: string; path: string };
 
@@ -150,52 +147,13 @@ const ResponsiveAppBar = (props: Props) => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem
-                key={'about'}
-                onClick={handleCloseUserMenu}
-                sx={{ justifyContent: 'center' }}
-              >
-                <Typography>Volleyball Definitions</Typography>
-              </MenuItem>
-              <MenuItem
-                key={'about'}
-                onClick={handleCloseUserMenu}
-                sx={{ justifyContent: 'center' }}
-              >
-                <Typography>About</Typography>
-              </MenuItem>
-              <Divider />
-              <Box sx={{ paddingLeft: 4, paddingRight: 4 }}>
-                {props.isLoggedIn ? (
-                  <Typography>`Welcome ${props.name}`</Typography>
-                ) : (
-                  <Login />
-                )}
-              </Box>
-            </Menu>
-          </Box>
+          <AppProfileMenu
+            anchorElUser={anchorElUser}
+            handleOpenUserMenu={handleOpenUserMenu}
+            handleCloseUserMenu={handleCloseUserMenu}
+            isLoggedIn={props.isLoggedIn}
+            name={props.name}
+          />
         </Toolbar>
       </Container>
     </AppBar>

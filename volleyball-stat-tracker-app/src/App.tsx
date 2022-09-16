@@ -1,4 +1,4 @@
-import ResponsiveAppBar from './components/ResponsiveAppBar';
+import ResponsiveAppBar from './components/app_bar/ResponsiveAppBar';
 import TrackGame from './features/TrackGame/TrackGame';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
