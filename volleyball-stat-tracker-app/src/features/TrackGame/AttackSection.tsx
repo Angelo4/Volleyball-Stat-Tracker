@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material';
 import { connect } from 'react-redux';
 import { AppState } from '../../redux/Store';
-import DataBadge from '../../components/vb_stat_display/DataBadge';
 import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
 import { VbActionResult } from '../../models/VBActionResult';
+import { DataBadge } from '../../components/vb_stat_display';
 
 const AttackSection = (props: VbActionResult) => {
   return (

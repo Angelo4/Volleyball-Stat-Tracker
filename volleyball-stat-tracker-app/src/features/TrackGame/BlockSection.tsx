@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { connect } from 'react-redux';
-import DataBadge from '../../components/vb_stat_display/DataBadge';
+import { DataBadge } from '../../components/vb_stat_display';
 import { VbActionResult } from '../../models/VBActionResult';
 import { AppState } from '../../redux/Store';
 import { vbActionEfficiency, vbActionTotal } from '../../utils/Calculator';
