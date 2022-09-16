@@ -58,7 +58,7 @@ export const OverallDefenseTable = (props: VolleyBallStats) => {
         </TableHead>
         <TableBody>
           {defenseRows.map((row) => (
-            <TableRow hover>
+            <TableRow key={row.name} hover>
               <TableCell>{row.name}</TableCell>
               <TableCell align='center'>{row.success}</TableCell>
               <TableCell align='center'>{row.error}</TableCell>

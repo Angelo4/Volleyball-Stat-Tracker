@@ -61,7 +61,7 @@ export const OverallScoringTable = (props: VolleyBallStats) => {
         </TableHead>
         <TableBody>
           {scoringRows.map((row) => (
-            <TableRow hover>
+            <TableRow key={row.name} hover>
               <TableCell>{row.name}</TableCell>
               <TableCell align='center'>{row.point}</TableCell>
               <TableCell align='center'>{row.error}</TableCell>
