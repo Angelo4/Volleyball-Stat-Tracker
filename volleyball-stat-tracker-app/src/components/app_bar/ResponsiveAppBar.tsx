@@ -67,7 +67,7 @@ const ResponsiveAppBar = (props: Props) => {
             }}
           >
             Volleylog
-            {window.location.host.match(/(?<=test\.)\w+/) && ' - Test'}
+            {window.location.host.match(/test/) && ' - Test'}
             {window.location.host.match(/localhost/) && ' - Local'}
           </Typography>
 
