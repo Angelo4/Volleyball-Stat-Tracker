@@ -16,5 +16,63 @@ resources:
     options:
       protect: true
 
+  distribution:
+    type: aws:cloudfront:Distribution
+    properties:
+      aliases:
+        - test.volleylog.in
+      defaultCacheBehavior:
+        allowedMethods:
+          - GET
+          - HEAD
+        cachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        cachedMethods:
+          - GET
+          - HEAD
+        compress: true
+        targetOriginId: test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+        viewerProtocolPolicy: allow-all
+      enabled: true
+      isIpv6Enabled: true
+      origins:
+        - customOriginConfig:
+            httpPort: 80
+            httpsPort: 443
+            originProtocolPolicy: http-only
+            originSslProtocols:
+              - TLSv1.2
+          domainName: test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+          originId: test-volleylog-s3-bucket.s3-website-ap-southeast-2.amazonaws.com
+      restrictions:
+        geoRestriction:
+          restrictionType: none
+      viewerCertificate:
+        acmCertificateArn: arn:aws:acm:us-east-1:546093459510:certificate/3c9de36a-dad8-482c-98c3-d46b2c886d76
+        minimumProtocolVersion: TLSv1.2_2021
+        sslSupportMethod: sni-only
+    options:
+      protect: true
+
+  route-53-hosted-zone:
+    type: aws:route53:Zone
+    properties:
+      comment:
+      name: test.volleylog.in
+    options:
+      protect: true
+
+  route-53-dns-record:
+    type: aws:route53:Record
+    properties:
+      aliases:
+        - evaluateTargetHealth: false
+          name: d46slday5zfed.cloudfront.net
+          zoneId: Z2FDTNDATAQYW2
+      name: test.volleylog.in
+      type: A
+      zoneId: Z04725103RSUFKLCKL67K
+    options:
+      protect: true
+
 outputs:
   s3Name: ${volleylog-s3.id}

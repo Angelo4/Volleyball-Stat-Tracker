@@ -75,5 +75,19 @@ resources:
     options:
       protect: true
 
+  route-53-dns-record-test-sub-ns:
+    type: aws:route53:Record
+    properties:
+      name: test.volleylog.in
+      records:
+        - ns-1950.awsdns-51.co.uk
+        - ns-1137.awsdns-14.org
+        - ns-631.awsdns-14.net
+        - ns-227.awsdns-28.com
+      ttl: 300
+      type: NS
+      zoneId: Z006015217XFPGTXIAIJX
+    options:
+      protect: true
 outputs:
   s3Name: ${volleylog-s3.id}

@@ -19,6 +19,7 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: test
+      url: https://test.volleylog.in
       hasCloudfront: false
     secrets:
       AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
