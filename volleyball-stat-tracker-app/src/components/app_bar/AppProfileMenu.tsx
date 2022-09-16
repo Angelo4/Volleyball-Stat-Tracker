@@ -14,6 +14,8 @@ import {
   LoginStatus,
 } from '@greatsumini/react-facebook-login';
 import { useEffect } from 'react';
+import { FbProfile, profileActions } from '../../redux/Profile';
+import { useDispatch } from 'react-redux';
 
 type Props = {
   anchorElUser: HTMLElement | null;
@@ -24,14 +26,32 @@ type Props = {
 };
 
 const AppProfileMenu = (props: Props) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     FacebookLoginClient.getLoginStatus((res: LoginResponse) => {
       if (res.status === LoginStatus.Connected) {
         FacebookLoginClient.getProfile(
-          (res) => {
+          (res: unknown) => {
             console.log('Get profile response', res);
+
+            const isFbProfile = (value: unknown): value is FbProfile =>
+              !!value &&
+              typeof value === 'object' &&
+              'name' in value &&
+              typeof (value as FbProfile).name === 'string';
+
+            console.log('isFbProfile', isFbProfile);
+
+            const fbResponse: FbProfile = {
+              id: 123,
+              name: 'Angelo',
+              email: 'angeloalcantara4@gmail.com',
+            };
+
+            dispatch(profileActions.login(fbResponse));
           },
-          { fields: 'name' }
+          { fields: 'name,email,last_name' }
         );
       }
     });
