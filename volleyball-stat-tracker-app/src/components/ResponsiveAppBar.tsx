@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Login from '../features/Login/Login';
 import { Divider } from '@mui/material';
 import { AppState } from '../redux/Store';
+import { connect } from 'react-redux';
 
 type menuButtons = { title: string; path: string };
 
@@ -210,4 +211,4 @@ export const mapStateToProps = (state: AppState) => {
   };
 };
 
-export default ResponsiveAppBar;
+export default connect(mapStateToProps)(ResponsiveAppBar);
