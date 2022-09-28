@@ -6,7 +6,7 @@
             "name": "volleylog-functions:HelloWorldFunction (nodejs16.x)",
             "invokeTarget": {
                 "target": "template",
-                "templatePath": "${workspaceFolder}/lambda-functions/volleylog-functions/template.yaml",
+                "templatePath": "${workspaceFolder}/volleylog-functions/template.yaml",
                 "logicalId": "HelloWorldFunction"
             },
             "lambda": {
@@ -21,7 +21,7 @@
             "name": "API volleylog-functions:HelloWorldFunction (nodejs16.x)",
             "invokeTarget": {
                 "target": "api",
-                "templatePath": "${workspaceFolder}/lambda-functions/volleylog-functions/template.yaml",
+                "templatePath": "${workspaceFolder}/volleylog-functions/template.yaml",
                 "logicalId": "HelloWorldFunction"
             },
             "api": {
