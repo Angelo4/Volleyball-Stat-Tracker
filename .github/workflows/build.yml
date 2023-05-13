@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: react-build-folder
-          path: volleyball-stat-tracker-app/build
+          path: src/volleyball-stat-tracker-app/build
